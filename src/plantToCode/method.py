@@ -1,11 +1,11 @@
-from visibility import Visibility
-from modifier import Modifier
-from attribute import Attribute
+from src.plantToCode.visibility import Visibility
+from src.plantToCode.modifier import Modifier
+from src.plantToCode.attribute import Attribute
 
 
 class Method:
     def __init__(self, name: str, return_type: str = "void",
-                parameters: [Attribute] = None, 
+                parameters: [Attribute] = [], 
                 visibility: Visibility = Visibility.public,
                 modifier: Modifier = Modifier.none):
         self.name = name
