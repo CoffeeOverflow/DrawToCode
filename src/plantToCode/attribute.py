@@ -1,4 +1,4 @@
-from visibility import Visibility
+from src.plantToCode.visibility import Visibility
 
 
 class Attribute:
