@@ -24,7 +24,7 @@ class Method:
         return self.__str__
 
     def __formatted_parameters(self) -> str:
-        parameters = [(f"{parameter.attribute_type} {parameter.name}") 
+        parameters = [(f"{parameter.type_} {parameter.name}") 
             for parameter in self.parameters]
         return ', '.join(parameters)
 
