@@ -21,7 +21,7 @@ class Method:
         return (f"{self.visibility.name} "
                 f"{self.__formatted_modifier()}" 
                 f"{self.return_type} {self.name}"
-                f"({self.__formatted_parameters()}) {{ }}")
+                f"({self.__formatted_parameters()})")
 
     def __repr__(self):
         return self.__str__
