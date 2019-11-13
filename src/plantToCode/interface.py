@@ -13,17 +13,3 @@ class Interface:
         self.methods = methods
         self.interfaces = interfaces
         self.visibility = visibility
-
-    def __str__(self):
-        return (f"{self.visibility.name} interface {self.name} {{\n"
-                f"{self.__formatted_methods()}\n"
-                f"}}")
-
-    def __repr__(self):
-        return self.__str__
-
-    def __formatted_methods(self) -> str:
-        methods_list = [f"\t{str(method)};" for method in self.methods] 
-
-        return '\n\n'.join(methods_list)
-

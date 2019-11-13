@@ -7,10 +7,3 @@ class Attribute:
         self.name = name
         self.type_ = type_
         self.visibility = visibility
-
-    def __str__(self):
-        return (f"{self.visibility.name} {self.type_}"
-                f" {self.name}")
-
-    def __repr__(self):
-        return self.__str__
