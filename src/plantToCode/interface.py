@@ -5,8 +5,8 @@ from src.plantToCode.method import Method
 
 class Interface:
     def __init__(self, name: str, 
-                 visibility: Visibility,     
                  methods: List[Method],
+                 visibility: Visibility = Visibility.public,     
                  interfaces: List['Interface'] = []):
         
         self.name = name
@@ -15,10 +15,9 @@ class Interface:
         self.visibility = visibility
 
     def __str__(self):
-        brackets = "{}"
-        return (f"{self.visibility.name} interface {self.name} {brackets[0]}"
-                f"\n{self.__formatted_methods()}\n"
-                f"{brackets[1]}")
+        return (f"{self.visibility.name} interface {self.name} {{\n"
+                f"{self.__formatted_methods()}\n"
+                f"}}")
 
     def __repr__(self):
         return self.__str__

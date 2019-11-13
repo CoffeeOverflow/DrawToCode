@@ -13,7 +13,7 @@ if __name__ == "__main__":
                         visibility=Visibility.private)
     
     methods = [one_method, two_method]
-    interface = Interface("interface", Visibility.public, methods)
+    interface = Interface("interface", methods)
     print(interface._Interface__formatted_methods())
     print()
     print(interface)
