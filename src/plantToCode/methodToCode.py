@@ -10,8 +10,8 @@ class MethodToCode:
 
     def __convert_method(self, method: Method) -> str:
         return (f"{method.visibility.name} "
-                f"{method.modifier.name}"
-                f"{'' if method.modifier.name is Modifier.none else ' '}"
+                f"{method.modifier.value}"
+                f"{'' if method.modifier is Modifier.none else ' '}"
                 f"{method.return_type} {method.name}"
                 f"({self.__formatted_parameters(method.parameters)})")
 
