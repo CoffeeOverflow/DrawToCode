@@ -9,8 +9,11 @@ one_method = Method("method1", "int")
 two_method = Method("method2", "float", parameters=[parameter])
 
 methods = [one_method, two_method]
-interface = Interface("interface", methods)
+interface1 = Interface("interface1", methods)
+interface2 = Interface("interface2", methods)
 
+interface = Interface("interface", methods, interfaces=[interface1,
+                                                        interface2])
 
 def WriteInterface(interface: Interface) -> None:
     interface_to_code = InterfaceToCode()

@@ -1,0 +1,5 @@
+public interface interface implements interface1, interface2 {
+	public int method1();
+
+	public float method2(int a);
+}
