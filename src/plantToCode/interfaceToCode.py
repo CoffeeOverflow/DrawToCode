@@ -7,14 +7,14 @@ class InterfaceToCode:
     def convert(interface: Interface) -> str:
         method_to_code = MethodToCode(interface.methods)
 
-        interfaces_code = InterfaceToCode.codeImplementedInterfaces(interface)
+        interfaces_code = InterfaceToCode.codeImplementedInterfaces(interface.interfaces)
         return (f"{interface.visibility.name} interface {interface.name}"
                 f"{interfaces_code} {{\n"
                 f"{method_to_code.get_formatted_methods()}\n"
                 f"}}")
 
-    def codeImplementedInterfaces(interface: Interface) -> str:
-        interfaces_list = interface.interfaces
+    @staticmethod
+    def codeImplementedInterfaces(interfaces_list: [Interface]) -> str:
         if len(interfaces_list) > 0:
             interfaces_names = [x.name for x in interfaces_list]
             interfaces_string = ", ".join(interfaces_names)
