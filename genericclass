@@ -1,0 +1,8 @@
+public class GenericClass extends Test implements in1, in2 {
+	private char test;
+	package Classy classy;
+
+	public abstract int method1();
+
+	public float method2(int a);
+}

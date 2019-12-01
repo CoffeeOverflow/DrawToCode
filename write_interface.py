@@ -2,7 +2,7 @@ from src.plantToCode.interface import Interface
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.method import Method
 from src.plantToCode.visibility import Visibility
-from src.plantToCode.interfaceToCode import InterfaceToCode
+from dataToCode.interfaceToCode import InterfaceToCode
 
 parameter = Attribute("a", "int", Visibility.public)
 one_method = Method("method1", "int")

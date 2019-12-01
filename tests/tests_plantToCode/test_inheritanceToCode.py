@@ -4,8 +4,7 @@ from src.plantToCode.classData import ClassData
 
 
 def test_no_inheritance_equals_empty_string():
-    inheritance_to_code = InheritanceToCode([])
-    assert inheritance_to_code.get_formatted() == ''
+    assert InheritanceToCode([]).get_formatted() == ''
 
 
 @pytest.mark.parametrize("inheritance_name", ["name", "Car", "generic_class",
