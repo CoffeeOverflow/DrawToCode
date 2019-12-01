@@ -1,8 +1,8 @@
 from src.plantToCode.classData import ClassData
 from src.plantToCode.modifier import Modifier
-from src.plantToCode.methodToCode import MethodToCode
-from src.plantToCode.interfaceToCode import InterfaceToCode
-from src.plantToCode.inheritanceToCode import InheritanceToCode
+from dataToCode.methodToCode import MethodToCode
+from dataToCode.interfaceToCode import InterfaceToCode
+from dataToCode.inheritanceToCode import InheritanceToCode
 
 
 class ClassToCode:

@@ -1,5 +1,5 @@
 from src.plantToCode.interface import Interface
-from src.plantToCode.methodToCode import MethodToCode
+from dataToCode.methodToCode import MethodToCode
 
 
 class InterfaceToCode:
