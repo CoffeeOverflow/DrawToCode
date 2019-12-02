@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup as bs
+from src.xmlToPlant.regex.XMLCodeExtractor import  XMLCodeExtractor
 
 class readXml:
 
@@ -12,7 +13,7 @@ class readXml:
 
         for cell in root.iter('mxCell'):
             if(int(cell.get('id')) > 1):
-                print(cell.get('id'))
+                #print(cell.get('id'))
                 uml_data = cell.get('value')
                 #print(uml_data)
 
@@ -25,4 +26,6 @@ class readXml:
             if i == 0:
                 print(result[i].b.string)
             else:
-                print(result[i].string)
+                print(XMLCodeExtractor.extract_visibility(result[i].string),
+                      XMLCodeExtractor.extract_name(result[i].string),
+                      XMLCodeExtractor.extract_type(result[i].string))
