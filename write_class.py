@@ -4,7 +4,7 @@ from src.plantToCode.attribute import Attribute
 from src.plantToCode.method import Method
 from src.plantToCode.visibility import Visibility
 from src.plantToCode.modifier import Modifier
-from dataToCode.classToJava import ClassToJava
+from dataToCode.ToJava.classToJava import ClassToJava
 
 attribute1 = Attribute("test", "char", Visibility.private)
 attribute2 = Attribute("classy", "Classy", Visibility.package)

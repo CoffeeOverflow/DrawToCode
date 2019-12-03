@@ -1,5 +1,5 @@
 import pytest
-from dataToCode.inheritanceToJava import InheritanceToJava
+from dataToCode.ToJava.inheritanceToJava import InheritanceToJava
 from src.plantToCode.classData import ClassData
 
 
