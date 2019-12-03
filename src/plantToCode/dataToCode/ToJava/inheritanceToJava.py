@@ -1,4 +1,4 @@
-from dataToCode.inheritanceToCode import InheritanceToCode
+from src.plantToCode.dataToCode.inheritanceToCode import InheritanceToCode
 from src.plantToCode.classData import ClassData
 
 

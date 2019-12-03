@@ -1,5 +1,5 @@
 import pytest
-from dataToCode.ToJava.methodToJava import MethodToJava
+from src.plantToCode.dataToCode.ToJava.methodToJava import MethodToJava
 from src.plantToCode.method import Method
 from src.plantToCode.visibility import Visibility
 from src.plantToCode.attribute import Attribute

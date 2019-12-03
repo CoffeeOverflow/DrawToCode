@@ -1,4 +1,4 @@
-from dataToCode.methodToCode import MethodToCode
+from src.plantToCode.dataToCode.methodToCode import MethodToCode
 from src.plantToCode.method import Method
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.modifier import Modifier
