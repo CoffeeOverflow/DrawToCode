@@ -4,7 +4,7 @@ from src.plantToCode.attribute import Attribute
 from src.plantToCode.method import Method
 from src.plantToCode.visibility import Visibility
 from src.plantToCode.modifier import Modifier
-from dataToCode.classToCode import ClassToCode
+from dataToCode.classToJava import ClassToJava
 
 attribute1 = Attribute("test", "char", Visibility.private)
 attribute2 = Attribute("classy", "Classy", Visibility.package)
@@ -24,7 +24,7 @@ classy = ClassData("GenericClass", [attribute1, attribute2], [one_method, two_me
 
 
 def WriteClass(class_data: ClassData) -> None:
-    class_to_code = ClassToCode(class_data)
+    class_to_code = ClassToJava(class_data)
     content = class_to_code.convert()
     with open(class_data.name.lower(), "w") as class_file:
         class_file.write(content)

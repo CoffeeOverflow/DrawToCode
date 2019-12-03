@@ -4,7 +4,7 @@ from src.plantToCode.modifier import Modifier
 from typing import List
 
 
-class MethodToCode:
+class MethodToJava:
     def __init__(self, methods: List[Method], is_from_interface: bool = False):
         self.methods = methods
         self.is_from_interface = is_from_interface

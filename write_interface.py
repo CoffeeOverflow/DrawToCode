@@ -2,7 +2,7 @@ from src.plantToCode.interface import Interface
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.method import Method
 from src.plantToCode.visibility import Visibility
-from dataToCode.interfaceToCode import InterfaceToCode
+from dataToCode.interfaceToJava import InterfaceToJava
 
 parameter = Attribute("a", "int", Visibility.public)
 one_method = Method("method1", "int")
@@ -16,7 +16,7 @@ interface = Interface("interface", methods, interfaces=[interface1,
                                                         interface2])
 
 def WriteInterface(interface: Interface) -> None:
-    interface_to_code = InterfaceToCode()
+    interface_to_code = InterfaceToJava()
     content = interface_to_code.convert(interface)
     with open(interface.name.lower(), "w") as interface_file:
         interface_file.write(content)

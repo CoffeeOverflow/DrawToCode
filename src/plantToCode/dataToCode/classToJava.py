@@ -1,16 +1,16 @@
 from src.plantToCode.classData import ClassData
 from src.plantToCode.modifier import Modifier
-from dataToCode.methodToCode import MethodToCode
-from dataToCode.interfaceToCode import InterfaceToCode
-from dataToCode.inheritanceToCode import InheritanceToCode
+from dataToCode.methodToJava import MethodToJava
+from dataToCode.interfaceToJava import InterfaceToJava
+from dataToCode.inheritanceToJava import InheritanceToJava
 
 
-class ClassToCode:
+class ClassToJava:
 
     def __init__(self, class_data: ClassData):
         self.class_data = class_data
-        self.method_to_code = MethodToCode(self.class_data.methods)
-        self.inheritance_to_code = InheritanceToCode(self.class_data.inheritances)
+        self.method_to_code = MethodToJava(self.class_data.methods)
+        self.inheritance_to_code = InheritanceToJava(self.class_data.inheritances)
 
     def convert(self) -> str:
         return (f"{self.__formatted_class_header()}"
@@ -22,7 +22,7 @@ class ClassToCode:
         return (f"{self.class_data.visibility.name} {self.class_data.modifier.value}"
                 f"{'' if self.class_data.modifier is Modifier.none else ' '}"
                 f"class {self.class_data.name}{self.inheritance_to_code.get_formatted()}"
-                f"{InterfaceToCode.codeImplementedInterfaces(self.class_data.implementations)}"
+                f"{InterfaceToJava.codeImplementedInterfaces(self.class_data.implementations)}"
                 f" {{\n")
 
     def __formatted_fields(self):

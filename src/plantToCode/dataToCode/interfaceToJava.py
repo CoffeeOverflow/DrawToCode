@@ -1,13 +1,13 @@
 from src.plantToCode.interface import Interface
-from dataToCode.methodToCode import MethodToCode
+from dataToCode.methodToJava import MethodToJava
 
 
-class InterfaceToCode:
+class InterfaceToJava:
     @staticmethod
     def convert(interface: Interface) -> str:
-        method_to_code = MethodToCode(interface.methods, is_from_interface=True)
+        method_to_code = MethodToJava(interface.methods, is_from_interface=True)
 
-        interfaces_code = InterfaceToCode.codeImplementedInterfaces(interface.interfaces)
+        interfaces_code = InterfaceToJava.codeImplementedInterfaces(interface.interfaces)
         return (f"{interface.visibility.name} interface {interface.name}"
                 f"{interfaces_code} {{\n"
                 f"{method_to_code.get_formatted_methods()}\n"
