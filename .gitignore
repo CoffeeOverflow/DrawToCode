@@ -109,3 +109,4 @@ dmypy.json
 
 ### Pycharm ###
 /.idea
+/venv/
