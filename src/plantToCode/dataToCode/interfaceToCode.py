@@ -5,7 +5,7 @@ from dataToCode.methodToCode import MethodToCode
 class InterfaceToCode:
     @staticmethod
     def convert(interface: Interface) -> str:
-        method_to_code = MethodToCode(interface.methods)
+        method_to_code = MethodToCode(interface.methods, is_from_interface=True)
 
         interfaces_code = InterfaceToCode.codeImplementedInterfaces(interface.interfaces)
         return (f"{interface.visibility.name} interface {interface.name}"
