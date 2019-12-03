@@ -8,7 +8,7 @@ from src.plantToCode.attribute import Attribute
 def test_method_with_name():
     method = Method("test")
     method_to_code = MethodToJava([method])
-    code = method_to_code._MethodToCode__convert_method(method)
+    code = method_to_code._MethodToJava__convert_method(method)
     assert code == "public void test()"
 
 
@@ -25,7 +25,7 @@ def test_method_visibility(visibility_name, expected):
     visibility = Visibility(visibility_name)
     method = Method("test", visibility=visibility)
     method_to_code = MethodToJava([method])
-    code = method_to_code._MethodToCode__convert_method(method)
+    code = method_to_code._MethodToJava__convert_method(method)
     assert code == expected
 
 
@@ -43,7 +43,7 @@ def test_method_value(value, expected):
     else:
         method = Method("test", return_type=value)
     method_to_code = MethodToJava([method])
-    code = method_to_code._MethodToCode__convert_method(method)
+    code = method_to_code._MethodToJava__convert_method(method)
     assert code == expected
 
 parameters_data = [
@@ -58,5 +58,5 @@ def test_method_parameters(parameter_list, expected):
     parameter_list = [Attribute(x, y, z) for x, y, z in parameter_list]
     method = Method("test", parameters=parameter_list)
     method_to_code = MethodToJava([method])
-    code = method_to_code._MethodToCode__convert_method(method)
+    code = method_to_code._MethodToJava__convert_method(method)
     assert code == expected
