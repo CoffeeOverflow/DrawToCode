@@ -1,10 +1,11 @@
+from dataToCode.methodToCode import MethodToCode
 from src.plantToCode.method import Method
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.modifier import Modifier
 from typing import List
 
 
-class MethodToJava:
+class MethodToJava(MethodToCode):
     def __init__(self, methods: List[Method], is_from_interface: bool = False):
         self.methods = methods
         self.is_from_interface = is_from_interface

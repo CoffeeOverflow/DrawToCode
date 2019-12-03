@@ -1,3 +1,4 @@
+from dataToCode.classToCode import ClassToCode
 from src.plantToCode.classData import ClassData
 from src.plantToCode.modifier import Modifier
 from dataToCode.ToJava.methodToJava import MethodToJava
@@ -5,7 +6,7 @@ from dataToCode.ToJava.interfaceToJava import InterfaceToJava
 from dataToCode.ToJava.inheritanceToJava import InheritanceToJava
 
 
-class ClassToJava:
+class ClassToJava(ClassToCode):
 
     def __init__(self, class_data: ClassData):
         self.class_data = class_data

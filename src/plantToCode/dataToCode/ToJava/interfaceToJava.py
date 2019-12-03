@@ -1,8 +1,9 @@
+from dataToCode.interfaceToCode import InterfaceToCode
 from src.plantToCode.interface import Interface
 from dataToCode.ToJava.methodToJava import MethodToJava
 
 
-class InterfaceToJava:
+class InterfaceToJava(InterfaceToCode):
     @staticmethod
     def convert(interface: Interface) -> str:
         method_to_code = MethodToJava(interface.methods, is_from_interface=True)

@@ -1,7 +1,8 @@
+from dataToCode.inheritanceToCode import InheritanceToCode
 from src.plantToCode.classData import ClassData
 
 
-class InheritanceToJava:
+class InheritanceToJava(InheritanceToCode):
     def __init__(self, inheritances: [ClassData]):
         self.inheritances = inheritances
 
