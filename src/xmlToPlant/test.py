@@ -1,5 +1,5 @@
-from src.xmlToPlant.readXml import readXml
+from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
 
-a = readXml('uml1.xml')
+a = DrawIoXmlParser('uml1.xml')
 
-a.read()
+a.readXml()
