@@ -1,5 +1,5 @@
 from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
 
-a = DrawIoXmlParser('uml1.xml')
+a = DrawIoXmlParser('uml_test.xml')
 
 a.read_xml()
