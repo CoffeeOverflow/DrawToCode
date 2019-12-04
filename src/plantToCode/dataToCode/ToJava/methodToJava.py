@@ -15,8 +15,7 @@ class MethodToJava(MethodToCode):
                 f"{method.modifier.value}"
                 f"{'' if method.modifier is Modifier.none else ' '}"
                 f"{method.return_type} {method.name}"
-                f"({self.__formatted_parameters(method.parameters)})"
-                f"{self.__formatted_body()}")
+                f"({self.__formatted_parameters(method.parameters)})")
 
     def __formatted_body(self) -> str:
         if self.is_from_interface:
@@ -30,6 +29,6 @@ class MethodToJava(MethodToCode):
         return ', '.join(parameters)
 
     def get_formatted_methods(self) -> str:
-        methods_str_list = [f"\t{self.__convert_method(method)}"
+        methods_str_list = [f"\t{self.__convert_method(method) + self.__formatted_body()}"
                             for method in self.methods]
         return '\n\n'.join(methods_str_list)
