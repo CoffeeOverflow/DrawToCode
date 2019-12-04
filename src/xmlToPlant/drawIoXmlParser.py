@@ -1,10 +1,17 @@
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup as bs
 
+from src.plantToCode.attribute import Attribute
+from src.plantToCode.visibility import Visibility
+from src.xmlToPlant.regexExtractors.attributeNameExtractor import AttributeNameExtractor
+from src.xmlToPlant.regexExtractors.methodNameExtractor import MethodNameExtractor
+from src.xmlToPlant.regexExtractors.parametersExtractor import ParametersExtractor
+from src.xmlToPlant.regexExtractors.returnTypeExtractor import ReturnTypeExtractor
+from src.xmlToPlant.regexExtractors.visibilityExtractor import VisibilityExtractor
+
 '''from src.plantToCode.classData import ClassData
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.method import Method'''
-from src.xmlToPlant.regex.xmlCodeExtractor import XMLCodeExtractor
 
 
 class DrawIoXmlParser:
@@ -12,7 +19,8 @@ class DrawIoXmlParser:
     def __init__(self, filename: str) -> object:
         self.filename = filename
 
-    def __extract_value_from_cells(self, root) -> list:
+    @staticmethod
+    def __extract_value_from_cells(root) -> list:
         list_of_xml_classes = []
         for cell in root.iter('mxCell'):
             if cell.get('id') != '1' and cell.get('id') != '0':
@@ -32,31 +40,36 @@ class DrawIoXmlParser:
 
             result = html.find_all('p')
 
-            '''list_of_classes = [ClassData]
-            list_of_attributes = [Attribute]
-            list_of_methods = [Method]
-            list_of_parameters = [Attribute]'''
-
-            """dict_of_classes = {'classes': {'attributes': {'visibility': str, 'type': str, 'name': str},
-                                           'methods': {'visibility': str, 'type': str, 'name': str, 'parameters': list},
-                                           'name': str, 'type': str, 'visibility': str}}"""
-
             for i in range(len(result)):
                 if result[i].string is not None:
                     if i == 0:
                         print()
-                        print('Class Name:', result[i].string)
+                        # print('Class Name:', result[i].string)
+                        classname = result[i].string
+                        print(classname)
                     else:
-                        v = XMLCodeExtractor.extract_visibility(result[i].string)
-                        n = XMLCodeExtractor.extract_name(result[i].string)
-                        t = XMLCodeExtractor.extract_type(result[i].string)
-                        p = XMLCodeExtractor.extract_parameters_string(result[i].string)
 
-                        print('Visibility:', v,
-                              'Name:', n,
-                              'Type:', t)
+                        visibility = VisibilityExtractor.extract_visibility(result[i].string)
+                        type_ = ReturnTypeExtractor.extract_type(result[i].string)
 
-                        if len(p) != 0 and p[0] != '':
-                            for parameter_string in p:
-                                print('Parameter Name:', XMLCodeExtractor.extract_name(parameter_string),
-                                      'Parameter Type:', XMLCodeExtractor.extract_type(parameter_string))
+                        if '(' in result[i].string:
+                            name = MethodNameExtractor.extract_name(result[i].string)
+
+                            list_of_parameters_string = ParametersExtractor.extract_parameters_string(result[i].string)
+
+                            list_of_parameters = []
+                            if len(list_of_parameters_string) != 0 and list_of_parameters_string[0] != '':
+                                list_of_parameters = []
+                                for parameter_string in list_of_parameters_string:
+                                    parameter_name = AttributeNameExtractor.extract_name(parameter_string)
+                                    parameter_type = ReturnTypeExtractor.extract_type(parameter_string)
+                                    attribute = Attribute(parameter_name, parameter_type, Visibility.public)
+                                    list_of_parameters.append(attribute)
+                        else:
+                            name = AttributeNameExtractor.extract_name(result[i].string)
+                            list_of_parameters = []
+
+                        print("Visibility:", visibility, "Name:", name, "Return Type:", type_)
+                        if len(list_of_parameters) > 0:
+                            for parameter in list_of_parameters:
+                                print("Parameter name:", parameter.name, "Parameter type:", parameter.type_)
