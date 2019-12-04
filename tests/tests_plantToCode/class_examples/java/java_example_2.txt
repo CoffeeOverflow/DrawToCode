@@ -1,0 +1,11 @@
+public class Orc extends Monster implements IWalk, IAttack {
+
+
+	public void attack(int damage, Entity entity, Bonus bonus) {
+		throw new UnsupportedOperationException();
+	}
+
+	protected static void cry() {
+		throw new UnsupportedOperationException();
+	}
+}

@@ -1,7 +1,9 @@
+from src.plantToCode.interface import Interface
 from src.plantToCode.method import Method
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.classData import ClassData
 from src.plantToCode.dataToCode.ToJava.classToJava import ClassToJava
+from src.plantToCode.modifier import Modifier
 from src.plantToCode.visibility import Visibility
 
 examples_folder = "../class_examples/java/"
@@ -20,4 +22,20 @@ def test_java_example_1():
         expected = java_example.read()
 
     result = ClassToJava(dog_class).convert()
+    assert result == expected
+
+
+def test_java_example_2():
+    param1 = Attribute("damage", "int")
+    param2 = Attribute("entity", "Entity")
+    param3 = Attribute("bonus", "Bonus")
+    method1 = Method("attack", "void", [param1, param2, param3])
+    method2 = Method("cry", "void", [], Visibility.protected, Modifier.static)
+    orc_class = ClassData("Orc", [], [method1, method2],
+                          [ClassData("Monster")], [Interface("IWalk", []), Interface("IAttack", [])])
+
+    with open(examples_folder + "java_example_2.txt", 'r') as java_example:
+        expected = java_example.read()
+
+    result = ClassToJava(orc_class).convert()
     assert result == expected
