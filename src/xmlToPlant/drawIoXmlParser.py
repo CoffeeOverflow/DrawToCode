@@ -50,7 +50,6 @@ class DrawIoXmlParser:
             for i in range(len(result)):
                 if result[i].string is not None:
                     if i == 0:
-                        print()
                         classname = result[i].string
                     else:
                         visibility = VisibilityExtractor.extract_visibility(result[i].string)
@@ -78,7 +77,6 @@ class DrawIoXmlParser:
 
             list_of_classes.append(ClassData(classname, list_of_attributes, list_of_methods))
         for class_ in list_of_classes:
-            print()
             print(class_.name)
             for attribute in class_.fields:
                 print(attribute.visibility, attribute.name, attribute.type_)
