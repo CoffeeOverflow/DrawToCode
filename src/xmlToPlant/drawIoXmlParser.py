@@ -1,6 +1,5 @@
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup as bs
-
 from src.plantToCode.attribute import Attribute
 from src.plantToCode.classData import ClassData
 from src.plantToCode.method import Method
@@ -20,6 +19,7 @@ class DrawIoXmlParser:
     @staticmethod
     def __extract_value_from_cells(root) -> list:
         list_of_xml_classes = []
+
         for cell in root.iter('mxCell'):
             if cell.get('id') != '1' and cell.get('id') != '0':
                 list_of_xml_classes.append(cell.get('value'))
@@ -45,12 +45,12 @@ class DrawIoXmlParser:
 
             result = html.find_all('p')
 
-            classname = ''
+            class_name = ''
 
             for i in range(len(result)):
                 if result[i].string is not None:
                     if i == 0:
-                        classname = result[i].string
+                        class_name = result[i].string
                     else:
                         visibility = VisibilityExtractor.extract_visibility(result[i].string)
                         type_ = ReturnTypeExtractor.extract_type(result[i].string)
@@ -75,7 +75,7 @@ class DrawIoXmlParser:
                             attribute = Attribute(name, type_, visibility)
                             list_of_attributes.append(attribute)
 
-            list_of_classes.append(ClassData(classname, list_of_attributes, list_of_methods))
+            list_of_classes.append(ClassData(class_name, list_of_attributes, list_of_methods))
         for class_ in list_of_classes:
             print(class_.name)
             for attribute in class_.fields:
