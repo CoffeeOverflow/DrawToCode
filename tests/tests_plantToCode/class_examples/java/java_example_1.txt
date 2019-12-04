@@ -1,0 +1,12 @@
+public class Dog {
+	public String name;
+	private int age;
+
+	public void bark() {
+		throw new UnsupportedOperationException();
+	}
+
+	private bool growUp(int byAge) {
+		throw new UnsupportedOperationException();
+	}
+}
