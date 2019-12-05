@@ -13,14 +13,11 @@ class MethodToJava(MethodToCode):
 
     def __convert_method(self, method: Method) -> str:
         modifier_formatter = MethodModifierToJava(method)
-        modifier_space = modifier_formatter.get_modifier_space()
-        modifier_value = modifier_formatter.get_modifier_value()
-        override_value = modifier_formatter.get_override_value()
 
-        return (f"{override_value}"
+        return (f"{modifier_formatter.get_override_value()}"
                 f"{method.visibility.name} "
-                f"{modifier_value}"
-                f"{modifier_space}"
+                f"{modifier_formatter.get_modifier_value()}"
+                f"{modifier_formatter.get_modifier_space()}"
                 f"{method.return_type} {method.name}"
                 f"({self.__formatted_parameters(method.parameters)})")
 
