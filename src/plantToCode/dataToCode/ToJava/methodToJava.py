@@ -12,12 +12,11 @@ class MethodToJava(MethodToCode):
         self.is_from_interface = is_from_interface
 
     def __convert_method(self, method: Method) -> str:
-        modifier_formatter = MethodModifierToJava(method)
+        modifier_to_java = MethodModifierToJava(method)
 
-        return (f"{modifier_formatter.get_override_value()}"
+        return (f"{modifier_to_java.formatted_override()}"
                 f"{method.visibility.name} "
-                f"{modifier_formatter.get_modifier_value()}"
-                f"{modifier_formatter.get_modifier_space()}"
+                f"{modifier_to_java.formatted_modifier()}"
                 f"{method.return_type} {method.name}"
                 f"({self.__formatted_parameters(method.parameters)})")
 
