@@ -1,7 +1,8 @@
 from src.plantToCode.dataToCode.methodToCode import MethodToCode
 from src.plantToCode.method import Method
 from src.plantToCode.attribute import Attribute
-from src.plantToCode.modifier import Modifier
+from src.plantToCode.dataToCode.ToJava.methodModifierToJava \
+    import MethodModifierToJava
 from typing import List
 
 
@@ -11,9 +12,10 @@ class MethodToJava(MethodToCode):
         self.is_from_interface = is_from_interface
 
     def __convert_method(self, method: Method) -> str:
-        modifier_space = self.__get_modifier_space(method)
-        modifier_value = self.__get_modifier_value(method)
-        override_value = self.__get_override_value(method)
+        modifier_formatter = MethodModifierToJava(method)
+        modifier_space = modifier_formatter.get_modifier_space()
+        modifier_value = modifier_formatter.get_modifier_value()
+        override_value = modifier_formatter.get_override_value()
 
         return (f"{override_value}"
                 f"{method.visibility.name} "
@@ -21,24 +23,6 @@ class MethodToJava(MethodToCode):
                 f"{modifier_space}"
                 f"{method.return_type} {method.name}"
                 f"({self.__formatted_parameters(method.parameters)})")
-
-    def __get_override_value(self, method):
-        if method.modifier is Modifier.override:
-            return f"@{method.modifier.value}\n\t"
-        else:
-            return ""
-
-    def __get_modifier_value(self, method):
-        if method.modifier is Modifier.override:
-            return ''
-        else:
-            return method.modifier.value
-
-    def __get_modifier_space(self, method):
-        if method.modifier in [Modifier.none, Modifier.override]:
-            return ''
-        else:
-            return " "
 
     def __formatted_body(self) -> str:
         if self.is_from_interface:
