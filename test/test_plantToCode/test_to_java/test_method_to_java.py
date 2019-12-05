@@ -71,3 +71,16 @@ def test_formatted_method_body(is_from_interface, expected):
     method = Method("example")
     method_to_java = MethodToJava([method], is_from_interface)
     assert method_to_java.get_formatted_methods() == expected
+
+
+modifier_data = [
+    (Modifier.abstract, "\tpublic abstract void example();"),
+    (Modifier.override, "\t@override\n\tpublic void example();"),
+    (Modifier.static, "\tpublic static void example();"),
+]
+@pytest.mark.parametrize("modifier, expected", modifier_data)
+def test_formatted_method_modifier(modifier, expected):
+    method = Method("example", modifier=modifier)
+    method_to_java = MethodToJava([method], True)
+    print(method_to_java.get_formatted_methods())
+    assert method_to_java.get_formatted_methods() == expected

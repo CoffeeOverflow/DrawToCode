@@ -11,9 +11,25 @@ class MethodToJava(MethodToCode):
         self.is_from_interface = is_from_interface
 
     def __convert_method(self, method: Method) -> str:
-        return (f"{method.visibility.name} "
-                f"{method.modifier.value}"
-                f"{'' if method.modifier is Modifier.none else ' '}"
+        
+        if method.modifier is Modifier.none:
+            modifier_space = ''
+        elif method.modifier is Modifier.override:
+            modifier_space = ''
+        else:
+            modifier_space = " "
+
+        if method.modifier is Modifier.override:
+            modifier_value = ''
+            override_value = f"@{method.modifier.value}\n\t"
+        else:
+            modifier_value = method.modifier.value
+            override_value = ""
+
+        return (f"{override_value}"
+                f"{method.visibility.name} "
+                f"{modifier_value}"
+                f"{modifier_space}"
                 f"{method.return_type} {method.name}"
                 f"({self.__formatted_parameters(method.parameters)})")
 
