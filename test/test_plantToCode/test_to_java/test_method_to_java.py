@@ -9,13 +9,13 @@ from typing import List
 
 def test_formatted_method():
     method = Method("example")
-    method_to_java = MethodToJava([method])
+    method_to_java = MethodToJava([method], True)
     assert method_to_java.get_formatted_methods() == "\tpublic void example();"
 
 def test_formatted_methods():
     method1 = Method("example")
     method2 = Method("example2")
-    method_to_java = MethodToJava([method1, method2])
+    method_to_java = MethodToJava([method1, method2], True)
     assert method_to_java.get_formatted_methods() == (f"\tpublic void example();"
                                                      f"\n\n\tpublic void"
                                                      f" example2();")
@@ -29,7 +29,7 @@ visibility_data = [
 @pytest.mark.parametrize("visibility, expected", visibility_data)
 def test_formatted_method_visibility(visibility, expected):
     method = Method("example", visibility=visibility)
-    method_to_java = MethodToJava([method])
+    method_to_java = MethodToJava([method], True)
     assert method_to_java.get_formatted_methods() == expected
 
 
@@ -40,7 +40,7 @@ type_data = [
 @pytest.mark.parametrize("type_name, expected", type_data)
 def test_formatted_method_type(type_name, expected):
     method = Method("example", return_type=type_name)
-    method_to_java = MethodToJava([method])
+    method_to_java = MethodToJava([method], True)
     assert method_to_java.get_formatted_methods() == expected
     
 
@@ -57,6 +57,17 @@ def test_formatted_method_parameters(parameters, expected):
         parameter_list.append(new_parameter)
 
     method = Method("example", parameters=parameter_list)
-    method_to_java = MethodToJava([method])
+    method_to_java = MethodToJava([method], True)
     assert method_to_java.get_formatted_methods() == expected
 
+
+body_data = [
+    (True, "\tpublic void example();"),
+    (False, (f"\tpublic void example()"  
+             f" {{\n\t\tthrow new UnsupportedOperationException();\n\t}}")),
+]
+@pytest.mark.parametrize("is_from_interface, expected", body_data)
+def test_formatted_method_body(is_from_interface, expected):
+    method = Method("example")
+    method_to_java = MethodToJava([method], is_from_interface)
+    assert method_to_java.get_formatted_methods() == expected
