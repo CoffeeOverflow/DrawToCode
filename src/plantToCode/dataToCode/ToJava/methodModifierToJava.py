@@ -1,8 +1,9 @@
+from src.plantToCode.dataToCode.methodModifierToCode import MethodModifierToCode
 from src.plantToCode.method import Method
 from src.plantToCode.modifier import Modifier
 
 
-class MethodModifierToJava:
+class MethodModifierToJava(MethodModifierToCode):
     def __init__(self, method: Method):
         self.method = method
 
