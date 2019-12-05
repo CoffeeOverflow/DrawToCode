@@ -12,9 +12,7 @@ class MethodToJava(MethodToCode):
 
     def __convert_method(self, method: Method) -> str:
         
-        if method.modifier is Modifier.none:
-            modifier_space = ''
-        elif method.modifier is Modifier.override:
+        if method.modifier in [Modifier.none, Modifier.override]:
             modifier_space = ''
         else:
             modifier_space = " "
