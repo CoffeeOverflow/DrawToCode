@@ -9,4 +9,4 @@ class VisibilityExtractor:
         types_of_visibilities = {"+": Visibility.public, "-": Visibility.private, "#": Visibility.protected}
         regex = re.compile('^\s*.')
         visibility = str(regex.findall(xml_string))[2:-2]
-        return types_of_visibilities[visibility.strip()]
+        return types_of_visibilities[visibility.lstrip()]
