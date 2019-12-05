@@ -11,18 +11,9 @@ class MethodToJava(MethodToCode):
         self.is_from_interface = is_from_interface
 
     def __convert_method(self, method: Method) -> str:
-        
-        if method.modifier in [Modifier.none, Modifier.override]:
-            modifier_space = ''
-        else:
-            modifier_space = " "
-
-        if method.modifier is Modifier.override:
-            modifier_value = ''
-            override_value = f"@{method.modifier.value}\n\t"
-        else:
-            modifier_value = method.modifier.value
-            override_value = ""
+        modifier_space = self.__get_modifier_space(method)
+        modifier_value = self.__get_modifier_value(method)
+        override_value = self.__get_override_value(method)
 
         return (f"{override_value}"
                 f"{method.visibility.name} "
@@ -30,6 +21,24 @@ class MethodToJava(MethodToCode):
                 f"{modifier_space}"
                 f"{method.return_type} {method.name}"
                 f"({self.__formatted_parameters(method.parameters)})")
+
+    def __get_override_value(self, method):
+        if method.modifier is Modifier.override:
+            return f"@{method.modifier.value}\n\t"
+        else:
+            return ""
+
+    def __get_modifier_value(self, method):
+        if method.modifier is Modifier.override:
+            return ''
+        else:
+            return method.modifier.value
+
+    def __get_modifier_space(self, method):
+        if method.modifier in [Modifier.none, Modifier.override]:
+            return ''
+        else:
+            return " "
 
     def __formatted_body(self) -> str:
         if self.is_from_interface:
