@@ -11,6 +11,11 @@ class MethodToJava(MethodToCode):
         self.methods = methods
         self.is_from_interface = is_from_interface
 
+    def get_formatted_methods(self) -> str:
+        methods_str_list = [f"\t{self.__convert_method(method) + self.__formatted_body()}"
+                            for method in self.methods]
+        return '\n\n'.join(methods_str_list)
+
     def __convert_method(self, method: Method) -> str:
         modifier_to_java = MethodModifierToJava(method)
 
@@ -30,8 +35,3 @@ class MethodToJava(MethodToCode):
         parameters = [f"{parameter.type_} {parameter.name}"
                       for parameter in parameters]
         return ', '.join(parameters)
-
-    def get_formatted_methods(self) -> str:
-        methods_str_list = [f"\t{self.__convert_method(method) + self.__formatted_body()}"
-                            for method in self.methods]
-        return '\n\n'.join(methods_str_list)

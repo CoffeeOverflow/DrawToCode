@@ -6,6 +6,9 @@ class MethodModifierToJava:
     def __init__(self, method: Method):
         self.method = method
 
+    def formatted_modifier(self) -> str:
+        return f"{self.__get_modifier_value() + self.__get_modifier_space()}"
+
     def formatted_override(self) -> str:
         if self.method.modifier is Modifier.override:
             return f"@{self.method.modifier.value}\n\t"
@@ -23,6 +26,3 @@ class MethodModifierToJava:
             return ''
         else:
             return " "
-
-    def formatted_modifier(self) -> str:
-        return f"{self.__get_modifier_value() + self.__get_modifier_space()}"
