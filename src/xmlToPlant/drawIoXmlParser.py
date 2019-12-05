@@ -21,7 +21,7 @@ class DrawIoXmlParser:
         list_of_xml_classes = []
 
         for cell in root.iter('mxCell'):
-            if cell.get('id') != '1' and cell.get('id') != '0':
+            if cell.get('id') not in ['0', '1']:
                 list_of_xml_classes.append(cell.get('value'))
 
         return list_of_xml_classes
