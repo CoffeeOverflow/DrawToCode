@@ -5,7 +5,7 @@ class ReturnTypeExtractor:
 
     @staticmethod
     def extract_type(xml_string) -> str:
-        regex = re.compile('\)*:\s*\w+')
+        regex = re.compile(r"\)*:\s*\w+")
         list_of_types = regex.findall(xml_string)
 
         if ')' in list_of_types[-1]:
