@@ -10,7 +10,7 @@ class ClassToJava(ClassToCode):
 
     def __init__(self, class_data: ClassData):
         self.class_data = class_data
-        self.method_to_code = MethodToJava(self.class_data.methods)
+        self.method_to_code = MethodToJava(self.class_data.methods, False)
         self.inheritance_to_code = InheritanceToJava(self.class_data.inheritances)
 
     def convert(self) -> str:

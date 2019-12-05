@@ -5,8 +5,10 @@ from src.plantToCode.classData import ClassData
 from src.plantToCode.dataToCode.ToJava.classToJava import ClassToJava
 from src.plantToCode.modifier import Modifier
 from src.plantToCode.visibility import Visibility
+import os.path as path
 
-examples_folder = "../class_examples/java/"
+examples_folder = path.abspath(
+    path.join(__file__, "../../class_examples/java/"))
 
 
 def test_java_example_1():
@@ -18,7 +20,7 @@ def test_java_example_1():
     method2 = Method("growUp", "bool", [param1], Visibility.private)
     dog_class = ClassData("Dog", [att1, att2], [method1, method2])
 
-    with open(examples_folder + "java_example_1.txt", 'r') as java_example:
+    with open(path.join(examples_folder, "java_example_1.txt"), 'r') as java_example:
         expected = java_example.read()
 
     result = ClassToJava(dog_class).convert()
@@ -34,7 +36,7 @@ def test_java_example_2():
     orc_class = ClassData("Orc", [], [method1, method2],
                           [ClassData("Monster")], [Interface("IWalk", []), Interface("IAttack", [])])
 
-    with open(examples_folder + "java_example_2.txt", 'r') as java_example:
+    with open(examples_folder + "\\java_example_2.txt", 'r') as java_example:
         expected = java_example.read()
 
     result = ClassToJava(orc_class).convert()
