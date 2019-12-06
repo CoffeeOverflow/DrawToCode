@@ -17,12 +17,12 @@ def test_formatted_method():
 def test_formatted_methods():
     method1 = Method("example")
     method2 = Method("example2")
-    method_to_java = MethodToPython([method1, method2], False)
+    method_to_python = MethodToPython([method1, method2], False)
     expected_one = (f"\tdef example(self):\n"
                     f"\t\tpass")
     expected_two = (f"\tdef example2(self):\n"
                     f"\t\tpass")
-    assert method_to_java.get_formatted_methods() == expected_one + "\n\n" + expected_two
+    assert method_to_python.get_formatted_methods() == expected_one + "\n\n" + expected_two
 
 
 visibility_data = [
@@ -36,8 +36,8 @@ visibility_data = [
 @pytest.mark.parametrize("visibility, expected", visibility_data)
 def test_formatted_method_visibility(visibility, expected):
     method = Method("example", visibility=visibility)
-    method_to_java = MethodToPython([method], False)
-    assert method_to_java.get_formatted_methods() == expected
+    method_to_python = MethodToPython([method], False)
+    assert method_to_python.get_formatted_methods() == expected
 
 
 parameter_data = [
@@ -55,12 +55,12 @@ def test_formatted_method_parameters(parameters, expected):
         parameter_list.append(new_parameter)
 
     method = Method("example", parameters=parameter_list)
-    method_to_java = MethodToPython([method], False)
-    assert method_to_java.get_formatted_methods() == expected
+    method_to_python = MethodToPython([method], False)
+    assert method_to_python.get_formatted_methods() == expected
 
 
 body_data = [
-    (True, "\\t@abstractmethod\n\tdef example(self):\n\t\tpass"),
+    (True, "\t@abstractmethod\n\tdef example(self):\n\t\tpass"),
     (False, "\tdef example(self):\n\t\tpass"),
 ]
 
@@ -68,20 +68,29 @@ body_data = [
 @pytest.mark.parametrize("is_from_interface, expected", body_data)
 def test_formatted_method_body(is_from_interface, expected):
     method = Method("example")
-    method_to_java = MethodToPython([method], is_from_interface)
-    assert method_to_java.get_formatted_methods() == expected
+    method_to_python = MethodToPython([method], is_from_interface)
+    assert method_to_python.get_formatted_methods() == expected
 
 
 modifier_data = [
     (Modifier.abstract, "\t@abstractmethod\n\tdef example(self):\n\t\tpass"),
     (Modifier.override, "\tdef example(self):\n\t\tpass"),
-    (Modifier.static, "\tdef example():\n\t\tpass"),
+    (Modifier.static, "\t@staticmethod\n\tdef example():\n\t\tpass"),
 ]
 
 
 @pytest.mark.parametrize("modifier, expected", modifier_data)
 def test_formatted_method_modifier(modifier, expected):
     method = Method("example", modifier=modifier)
-    method_to_java = MethodToPython([method], False)
-    print(method_to_java.get_formatted_methods())
-    assert method_to_java.get_formatted_methods() == expected
+    method_to_python = MethodToPython([method], False)
+    print(method_to_python.get_formatted_methods())
+    assert method_to_python.get_formatted_methods() == expected
+
+def test_static_protected_method_with_parameters():
+    param = Attribute("name", "String")
+    method = Method("example", "int", [param],
+                    Visibility.protected, Modifier.static)
+    method_to_python = MethodToPython([method], False)
+    expected = "\t@staticmethod\n\tdef _example(name):\n\t\tpass"
+    assert method_to_python.get_formatted_methods() == expected
+
