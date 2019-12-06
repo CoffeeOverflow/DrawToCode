@@ -22,7 +22,12 @@ class DrawIoXmlParser:
 
         for cell in root.iter('mxCell'):
             if cell.get('id') not in ['0', '1']:
-                list_of_xml_classes.append(cell.get('value'))
+                if cell.get('value') in ['Extends', 'Use']:
+                    arrow_type = cell.get('value')
+                    source_class = cell.get('source')
+                    target_class = cell.get('target')
+                else:
+                    list_of_xml_classes.append(cell.get('value'))
 
         return list_of_xml_classes
 
