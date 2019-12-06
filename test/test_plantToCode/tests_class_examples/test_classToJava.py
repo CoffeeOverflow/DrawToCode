@@ -36,7 +36,7 @@ def test_java_example_2():
     orc_class = ClassData("Orc", [], [method1, method2],
                           [ClassData("Monster")], [Interface("IWalk", []), Interface("IAttack", [])])
 
-    with open(examples_folder + "\\java_example_2.txt", 'r') as java_example:
+    with open(examples_folder + "/java_example_2.txt", 'r') as java_example:
         expected = java_example.read()
 
     result = ClassToJava(orc_class).convert()
