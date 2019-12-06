@@ -13,7 +13,7 @@ class MethodToPython(MethodToCode):
         self.is_from_interface = is_from_interface
 
     def get_formatted_methods(self) -> str:
-        methods_str_list = [f"\t{self.__convert_method(method) + self.__formatted_body()}"
+        methods_str_list = [f"\t{self.__convert_method(method)}"
                             for method in self.methods]
         return '\n\n'.join(methods_str_list)
 
@@ -23,7 +23,8 @@ class MethodToPython(MethodToCode):
                 f"{method.name}("
                 f"{'self' if method.modifier is not Modifier.static else ''}"
                 f"{', ' if method.parameters and method.modifier is not Modifier.static else ''}"
-                f"{self.__formatted_parameters(method.parameters)}):")
+                f"{self.__formatted_parameters(method.parameters)}):"
+                f"{self.__formatted_body()}")
 
     def __formatted_body(self) -> str:
         return "\n\t\tpass"

@@ -12,7 +12,7 @@ class MethodToJava(MethodToCode):
         self.is_from_interface = is_from_interface
 
     def get_formatted_methods(self) -> str:
-        methods_str_list = [f"\t{self.__convert_method(method) + self.__formatted_body()}"
+        methods_str_list = [f"\t{self.__convert_method(method)}"
                             for method in self.methods]
         return '\n\n'.join(methods_str_list)
 
@@ -23,7 +23,8 @@ class MethodToJava(MethodToCode):
                 f"{method.visibility.name} "
                 f"{modifier_to_java.formatted_modifier()}"
                 f"{method.return_type} {method.name}"
-                f"({self.__formatted_parameters(method.parameters)})")
+                f"({self.__formatted_parameters(method.parameters)})"
+                f"{self.__formatted_body()}")
 
     def __formatted_body(self) -> str:
         if self.is_from_interface:
