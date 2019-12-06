@@ -10,5 +10,5 @@ class ParametersExtractor:
         unformatted_parameters_string_list = name[3:-3].split(",")
         formatted_parameters_string_list = []
         for parameter in unformatted_parameters_string_list:
-            formatted_parameters_string_list.append(parameter.lstrip())
+            formatted_parameters_string_list.append(parameter.strip())
         return formatted_parameters_string_list
