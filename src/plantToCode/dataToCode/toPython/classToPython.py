@@ -22,7 +22,8 @@ class ClassToPython(ClassToCode):
         inheritances = self.class_data.inheritances + self.class_data.implementations
         imports = [f"from {inheritance.name.lower()} import {inheritance.name}"
                    for inheritance in inheritances]
-        return self.__optional_abc_import() + '\n'.join(imports) + '\n\n'
+        space = '\n\n\n' if inheritances else ''
+        return self.__optional_abc_import() + '\n'.join(imports) + space
 
     def __optional_abc_import(self) -> str:
         for method in self.class_data.methods:
