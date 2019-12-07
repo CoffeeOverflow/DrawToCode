@@ -11,10 +11,17 @@ class ClassToPython(ClassToCode):
         self.init_to_python = InitToPython(self.class_data.fields)
 
     def convert(self) -> str:
-        return (f"class {self.class_data.name}"
+        return (f"{self.__formatted_imports()}"
+                f"class {self.class_data.name}"
                 f"({self.__formatted_inheritances()}):\n"
                 f"{self.init_to_python.get_formatted()}\n"
-                f"{self.method_to_code.get_formatted_methods()}")
+                f"{self.method_to_code.get_formatted_methods()}\n")
+
+    def __formatted_imports(self) -> str:
+        inheritances = self.class_data.inheritances + self.class_data.implementations
+        imports = [f"import {inheritance.name}"
+                   for inheritance in inheritances]
+        return '\n'.join(imports) + '\n\n'
 
     def __formatted_inheritances(self) -> str:
         inheritances = self.class_data.inheritances + self.class_data.implementations
