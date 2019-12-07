@@ -1,24 +1,24 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from idomanythings import IDoManyThings
 
 
 class WeirdGodClass(IDoManyThings):
-    def __init__(self, mail_reader, configs, network_adapter, test_runner):
-        self.mail_reader = mail_reader
-        self.__configs = configs
-        self.network_adapter = network_adapter
-        self._test_runner = test_runner
+	def __init__(self, mail_reader, configs, network_adapter, test_runner):
+		self.mail_reader = mail_reader
+		self.__configs = configs
+		self.network_adapter = network_adapter
+		self._test_runner = test_runner
 
-    def initialize(self):
-        pass
+	def initialize(self):
+		pass
 
-    @abstractmethod
-    def initialize_2(self):
-        pass
+	@abstractmethod
+	def initialize_2(self):
+		pass
 
-    @staticmethod
-    def _do_things(how_much, flag1, flag2):
-        pass
+	@staticmethod
+	def _do_things(how_much, flag1, flag2):
+		pass
 
-    def __no_one_will_ever_use_this(self, trash, trash_can):
-        pass
+	def __no_one_will_ever_use_this(self, trash, trash_can):
+		pass

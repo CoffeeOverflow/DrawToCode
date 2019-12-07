@@ -1,6 +1,6 @@
 from monster import Monster
 from iwalk import IWalk
-from ittack import IAttack
+from iattack import IAttack
 
 
 class Orc(Monster, IWalk, IAttack):
