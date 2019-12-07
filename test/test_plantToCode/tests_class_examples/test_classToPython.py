@@ -43,7 +43,7 @@ def test_python_example_2():
     assert result == expected
 
 
-def test_python_example_2():
+def test_python_example_3():
     field1 = Attribute("mail_reader", "MailReader", Visibility.public)
     field2 = Attribute("configs", "Configs", Visibility.private)
     field3 = Attribute("network_adapter", "NetworkAdapter", Visibility.public)
