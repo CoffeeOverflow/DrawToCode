@@ -1,10 +1,10 @@
 from typing import List
 
 from dataClasses.attribute import Attribute
+from dataToCode.toPython.visibilityToPython import visibility_to_python
 from src.plantToCode.dataToCode.methodToCode import MethodToCode
 from dataClasses.method import Method
 from dataClasses.modifier import Modifier
-from dataClasses.visibility import Visibility
 
 
 class MethodToPython(MethodToCode):
@@ -35,12 +35,7 @@ class MethodToPython(MethodToCode):
         return ', '.join(parameters)
 
     def __formatted_visibility(self, method: Method) -> str:
-        if method.visibility is Visibility.private:
-            return "__"
-        elif method.visibility is Visibility.protected:
-            return "_"
-        else:
-            return ""
+        return visibility_to_python[method.visibility]
 
     def __formatted_modifier(self, method: Method) -> str:
         if method.modifier is Modifier.abstract or self.is_from_interface:
