@@ -1,15 +1,11 @@
 from typing import List
 from dataClasses.attribute import Attribute
-from dataClasses.visibility import Visibility
+from dataToCode.toPython.visibilityToPython import visibility_to_python
 
 
 class InitToPython:
     def __init__(self, class_fields: List[Attribute]):
         self.class_fields = class_fields
-        self.visibility_dict = {Visibility.private: "__",
-                                Visibility.protected: "_",
-                                Visibility.public: "",
-                                Visibility.package: ""}
 
     def get_formatted(self) -> str:
         pass_ = '\t\tpass'
@@ -22,7 +18,7 @@ class InitToPython:
         return f", {', '.join(fields_name)}" if self.class_fields else ""
 
     def __formatted_assignments(self) -> str:
-        class_fields = [f"\t\tself.{self.visibility_dict[field.visibility]}"
+        class_fields = [f"\t\tself.{visibility_to_python[field.visibility]}"
                         f"{field.name} = {field.name}"
                         for field in self.class_fields]
         return '\n'.join(class_fields)
