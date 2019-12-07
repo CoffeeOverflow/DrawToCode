@@ -1,4 +1,5 @@
 from dataClasses.classData import ClassData
+from dataClasses.modifier import Modifier
 from dataToCode.classToCode import ClassToCode
 from dataToCode.toPython.initToPython import InitToPython
 from dataToCode.toPython.methodToPython import MethodToPython
@@ -19,9 +20,15 @@ class ClassToPython(ClassToCode):
 
     def __formatted_imports(self) -> str:
         inheritances = self.class_data.inheritances + self.class_data.implementations
-        imports = [f"import {inheritance.name}"
+        imports = [f"from {inheritance.name.lower()} import {inheritance.name}"
                    for inheritance in inheritances]
-        return '\n'.join(imports) + '\n\n'
+        return self.__optional_abc_import() + '\n'.join(imports) + '\n\n'
+
+    def __optional_abc_import(self) -> str:
+        for method in self.class_data.methods:
+            if method.modifier is Modifier.abstract:
+                return "from abc import ABC, abstractmethod\n"
+        return ""
 
     def __formatted_inheritances(self) -> str:
         inheritances = self.class_data.inheritances + self.class_data.implementations
