@@ -1,0 +1,15 @@
+from monster import Monster
+from iwalk import IWalk
+from ittack import IAttack
+
+
+class Orc(Monster, IWalk, IAttack):
+	def __init__(self):
+		pass
+
+	def attack(self, damage, entity, bonus):
+		pass
+
+	@staticmethod
+	def _cry():
+		pass

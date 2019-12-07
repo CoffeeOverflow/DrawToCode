@@ -1,0 +1,10 @@
+class Dog:
+	def __init(self, name, age):
+		self.name = name
+		self.__age = age
+
+	def bark(self):
+		pass
+
+	def __grow_up(self, by_age):
+		pass
