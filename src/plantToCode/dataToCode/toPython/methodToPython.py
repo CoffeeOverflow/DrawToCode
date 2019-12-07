@@ -19,7 +19,7 @@ class MethodToPython(MethodToCode):
 
     def __convert_method(self, method: Method) -> str:
         return (f"{self.__formatted_modifier(method)}"
-                f"def {self.__formatted_visibility(method)}"
+                f"def {visibility_to_python[method.visibility]}"
                 f"{method.name}("
                 f"{'self' if method.modifier is not Modifier.static else ''}"
                 f"{', ' if method.parameters and method.modifier is not Modifier.static else ''}"
@@ -33,9 +33,6 @@ class MethodToPython(MethodToCode):
         parameters = [f"{parameter.name}"
                       for parameter in parameters]
         return ', '.join(parameters)
-
-    def __formatted_visibility(self, method: Method) -> str:
-        return visibility_to_python[method.visibility]
 
     def __formatted_modifier(self, method: Method) -> str:
         if method.modifier is Modifier.abstract or self.is_from_interface:
