@@ -1,5 +1,5 @@
 from src.plantToCode.dataToCode.inheritanceToCode import InheritanceToCode
-from src.plantToCode.classData import ClassData
+from dataClasses.classData import ClassData
 
 
 class InheritanceToJava(InheritanceToCode):

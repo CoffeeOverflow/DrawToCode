@@ -1,6 +1,6 @@
 from typing import List
-from attribute import Attribute
-from visibility import Visibility
+from dataClasses.attribute import Attribute
+from dataClasses.visibility import Visibility
 
 
 class InitToPython:

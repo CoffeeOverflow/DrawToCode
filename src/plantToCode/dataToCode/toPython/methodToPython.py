@@ -1,10 +1,10 @@
 from typing import List
 
-from src.plantToCode.attribute import Attribute
+from dataClasses.attribute import Attribute
 from src.plantToCode.dataToCode.methodToCode import MethodToCode
-from src.plantToCode.method import Method
-from src.plantToCode.modifier import Modifier
-from src.plantToCode.visibility import Visibility
+from dataClasses.method import Method
+from dataClasses.modifier import Modifier
+from dataClasses.visibility import Visibility
 
 
 class MethodToPython(MethodToCode):

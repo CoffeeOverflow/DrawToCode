@@ -1,4 +1,4 @@
-from classData import ClassData
+from dataClasses.classData import ClassData
 from dataToCode.classToCode import ClassToCode
 from dataToCode.toPython.initToPython import InitToPython
 from dataToCode.toPython.methodToPython import MethodToPython
