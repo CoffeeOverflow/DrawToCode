@@ -12,7 +12,7 @@ class InterfaceToPython(InterfaceToCode):
         return (f"{self.__formatted_imports()}"
                 f"class {self.interface.name}"
                 f"({self.__formatted_inheritances()}):\n"
-                f"{self.method_to_code.get_formatted_methods()}\n")
+                f"\n{self.method_to_code.get_formatted_methods()}\n")
 
     def __formatted_imports(self) -> str:
         imports = [f"from {inheritance.name.lower()} import {inheritance.name}"

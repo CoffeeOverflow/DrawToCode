@@ -3,6 +3,7 @@ from ifoo import IFoo
 
 
 class Example(ABC, IFoo):
+
 	@abstractmethod
 	def foo(self, a, b):
 		pass

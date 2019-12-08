@@ -4,6 +4,7 @@ from iattack import IAttack
 
 
 class Orc(Monster, IWalk, IAttack):
+
 	def __init__(self):
 		pass
 
