@@ -23,4 +23,5 @@ class InterfaceToPython(InterfaceToCode):
     def __formatted_inheritances(self) -> str:
         inheritances_name = [f"{interface.name}"
                              for interface in self.interface.interfaces]
-        return ', '.join(inheritances_name)
+        abstract_import = "ABC, " if self.interface.interfaces else "ABC"
+        return abstract_import + ', '.join(inheritances_name)
