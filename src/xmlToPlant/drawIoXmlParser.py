@@ -60,3 +60,5 @@ class DrawIoXmlParser:
                     print(method.visibility, method.name, method.return_type)
                     for parameter in method.parameters:
                         print(parameter.name, parameter.type_)
+
+        return list_of_classes, list_of_interfaces
