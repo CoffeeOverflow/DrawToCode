@@ -22,11 +22,16 @@ class DrawIoXmlParser:
 
         for cell in root.iter('mxCell'):
             if cell.get('id') not in ['0', '1']:
-                if cell.get('value') in ['Extends', 'Use']:
-                    arrow_type = cell.get('value')
+                if cell.get('value') == 'Extends':
+                    arrow_type = 'Extends'
+                    source_class = cell.get('source') #subclasse
+                    target_class = cell.get('target') #superclasse
+                elif cell.get('value') == None: #implements arrow
+                    arrow_type = 'Implements'
                     source_class = cell.get('source')
-                    target_class = cell.get('target')
-                else:
+                    target_class = cell.get('target')  #interface
+                else:   
+                    id = cell.get('id')
                     list_of_xml_classes.append(cell.get('value'))
 
         return list_of_xml_classes
