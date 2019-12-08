@@ -9,6 +9,7 @@ from src.plantToCode.dataClasses.method import Method
 from src.plantToCode.write_files import write_files
 from src.plantToCode.dataClasses.visibility import Visibility
 
+
 def test_strategy_example(tmpdir):
 
     def create_do_algorithm():
@@ -44,7 +45,7 @@ def test_strategy_example(tmpdir):
 
     objects = [create_strategy(), create_context(), create_concrete_a(),
                create_concrete_b()]
-    write_files(objects, tmpdir)
+    write_files(objects, tmpdir, "python")
     files_path = ["strategy.py", "context.py", "concrete_strategy_a.py",
                   "concrete_strategy_b.py"]
     strategy_path = os.path.abspath(os.path.join(__file__,
