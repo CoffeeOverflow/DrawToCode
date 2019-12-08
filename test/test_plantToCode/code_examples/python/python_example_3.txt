@@ -3,6 +3,7 @@ from idomanythings import IDoManyThings
 
 
 class WeirdGodClass(IDoManyThings):
+
 	def __init__(self, mail_reader, configs, network_adapter, test_runner):
 		self.mail_reader = mail_reader
 		self.__configs = configs
