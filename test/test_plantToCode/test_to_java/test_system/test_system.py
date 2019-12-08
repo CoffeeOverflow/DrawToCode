@@ -13,7 +13,7 @@ from src.plantToCode.dataClasses.visibility import Visibility
 def test_strategy_example(tmpdir):
     def create_do_algorithm():
         attribute = Attribute("data", "str")
-        method = Method("do_algorithm", parameters=[attribute])
+        method = Method("doAlgorithm", parameters=[attribute])
         return method
 
     def create_strategy():
@@ -24,7 +24,7 @@ def test_strategy_example(tmpdir):
     def create_context():
         attribute = Attribute("strategy", "Strategy",
                               visibility=Visibility.public)
-        method = Method("do_some_business_logic")
+        method = Method("doSomeBusinessLogic")
         context = ClassData("Context", methods=[method], fields=[attribute])
         return context
 
