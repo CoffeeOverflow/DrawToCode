@@ -8,7 +8,7 @@ from dataClasses.visibility import Visibility
 import os.path as path
 
 examples_folder = path.abspath(
-    path.join(__file__, "../../class_examples/java/"))
+    path.join(__file__, "../../code_examples/java/"))
 
 
 def test_java_example_1():
