@@ -44,7 +44,7 @@ class ClassParser:
                             for parameter_string in list_of_parameters_string:
                                 parameter_name = AttributeNameExtractor.extract_name(parameter_string)
                                 parameter_type = ReturnTypeExtractor.extract_type(parameter_string)
-                                parameter = Attribute(parameter_name, parameter_type, Visibility.public)
+                                parameter = Attribute(parameter_name, parameter_type)
                                 list_of_parameters.append(parameter)
 
                         method = Method(name, type_, list_of_parameters, visibility)

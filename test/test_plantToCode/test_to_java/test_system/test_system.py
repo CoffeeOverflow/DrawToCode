@@ -11,10 +11,9 @@ from src.plantToCode.dataClasses.visibility import Visibility
 
 
 def test_strategy_example(tmpdir):
-
     def create_do_algorithm():
         attribute = Attribute("data", "str")
-        method = Method("do_algorithm", parameters=[attribute])
+        method = Method("doAlgorithm", parameters=[attribute])
         return method
 
     def create_strategy():
@@ -23,9 +22,9 @@ def test_strategy_example(tmpdir):
         return strategy
 
     def create_context():
-        attribute = Attribute("strategy", "Strategy", 
+        attribute = Attribute("strategy", "Strategy",
                               visibility=Visibility.public)
-        method = Method("do_some_business_logic")
+        method = Method("doSomeBusinessLogic")
         context = ClassData("Context", methods=[method], fields=[attribute])
         return context
 
@@ -45,9 +44,9 @@ def test_strategy_example(tmpdir):
 
     objects = [create_strategy(), create_context(), create_concrete_a(),
                create_concrete_b()]
-    write_files(objects, tmpdir, "python")
-    files_path = ["strategy.py", "context.py", "concrete_strategy_a.py",
-                  "concrete_strategy_b.py"]
+    write_files(objects, tmpdir, "java")
+    files_path = ["strategy.java", "context.java", "concreteStrategyA.java",
+                  "concreteStrategyB.py"]
     strategy_path = os.path.abspath(os.path.join(__file__,
                                                  "../strategy_example"))
     generated_path = [os.path.join(tmpdir, x) for x in files_path]
@@ -56,4 +55,4 @@ def test_strategy_example(tmpdir):
     for truth_file_path, generated_file_path in zip(truth_path,
                                                     generated_path):
         assert filecmp.cmp(truth_file_path, generated_file_path)
-    
+
