@@ -1,8 +1,8 @@
-from dataClasses.attribute import Attribute
-from dataClasses.method import Method
-from dataClasses.interface import Interface
-from dataClasses.visibility import Visibility
-from dataClasses.modifier import Modifier
+from src.plantToCode.dataClasses.attribute import Attribute
+from src.plantToCode.dataClasses.method import Method
+from src.plantToCode.dataClasses.interface import Interface
+from src.plantToCode.dataClasses.visibility import Visibility
+from src.plantToCode.dataClasses.modifier import Modifier
 from typing import List
 
 

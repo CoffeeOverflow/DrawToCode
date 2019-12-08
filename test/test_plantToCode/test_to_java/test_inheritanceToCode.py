@@ -1,6 +1,6 @@
 import pytest
 from src.plantToCode.dataToCode.ToJava.inheritanceToJava import InheritanceToJava
-from dataClasses.classData import ClassData
+from src.plantToCode.dataClasses.classData import ClassData
 
 
 def test_no_inheritance_equals_empty_string():

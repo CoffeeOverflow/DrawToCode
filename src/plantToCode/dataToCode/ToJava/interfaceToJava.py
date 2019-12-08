@@ -1,5 +1,5 @@
 from src.plantToCode.dataToCode.interfaceToCode import InterfaceToCode
-from dataClasses.interface import Interface
+from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataToCode.ToJava.methodToJava import MethodToJava
 
 

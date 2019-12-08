@@ -1,8 +1,8 @@
-from dataClasses.classData import ClassData
-from dataClasses.modifier import Modifier
-from dataToCode.classToCode import ClassToCode
-from dataToCode.toPython.initToPython import InitToPython
-from dataToCode.toPython.methodToPython import MethodToPython
+from src.plantToCode.dataClasses.classData import ClassData
+from src.plantToCode.dataClasses.modifier import Modifier
+from src.plantToCode.dataToCode.classToCode import ClassToCode
+from src.plantToCode.dataToCode.toPython.initToPython import InitToPython
+from src.plantToCode.dataToCode.toPython.methodToPython import MethodToPython
 
 
 class ClassToPython(ClassToCode):

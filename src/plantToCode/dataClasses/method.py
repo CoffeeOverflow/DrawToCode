@@ -1,6 +1,6 @@
-from dataClasses.visibility import Visibility
-from dataClasses.modifier import Modifier
-from dataClasses.attribute import Attribute
+from src.plantToCode.dataClasses.visibility import Visibility
+from src.plantToCode.dataClasses.modifier import Modifier
+from src.plantToCode.dataClasses.attribute import Attribute
 from typing import List
 
 

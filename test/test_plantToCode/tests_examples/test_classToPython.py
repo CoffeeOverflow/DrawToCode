@@ -1,10 +1,10 @@
-from dataClasses.interface import Interface
-from dataClasses.method import Method
-from dataClasses.attribute import Attribute
-from dataClasses.classData import ClassData
+from src.plantToCode.dataClasses.interface import Interface
+from src.plantToCode.dataClasses.method import Method
+from src.plantToCode.dataClasses.attribute import Attribute
+from src.plantToCode.dataClasses.classData import ClassData
 from src.plantToCode.dataToCode.toPython.classToPython import ClassToPython
-from dataClasses.modifier import Modifier
-from dataClasses.visibility import Visibility
+from src.plantToCode.dataClasses.modifier import Modifier
+from src.plantToCode.dataClasses.visibility import Visibility
 import os.path as path
 
 examples_folder = path.abspath(

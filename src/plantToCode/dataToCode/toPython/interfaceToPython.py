@@ -1,6 +1,6 @@
-from dataClasses.interface import Interface
-from dataToCode.interfaceToCode import InterfaceToCode
-from dataToCode.toPython.methodToPython import MethodToPython
+from src.plantToCode.dataClasses.interface import Interface
+from src.plantToCode.dataToCode.interfaceToCode import InterfaceToCode
+from src.plantToCode.dataToCode.toPython.methodToPython import MethodToPython
 
 
 class InterfaceToPython(InterfaceToCode):

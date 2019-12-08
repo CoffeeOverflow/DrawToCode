@@ -1,4 +1,4 @@
-from dataClasses.visibility import Visibility
+from src.plantToCode.dataClasses.visibility import Visibility
 
 visibility_to_python = {Visibility.private: "__",
                         Visibility.protected: "_",

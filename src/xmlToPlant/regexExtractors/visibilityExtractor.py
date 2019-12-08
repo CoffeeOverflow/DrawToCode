@@ -1,5 +1,5 @@
 import re
-from dataClasses.visibility import Visibility
+from src.plantToCode.dataClasses.visibility import Visibility
 
 
 class VisibilityExtractor:
