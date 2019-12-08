@@ -1,7 +1,7 @@
-from src.plantToCode.interface import Interface
-from src.plantToCode.attribute import Attribute
-from src.plantToCode.method import Method
-from src.plantToCode.visibility import Visibility
+from dataClasses.interface import Interface
+from dataClasses.attribute import Attribute
+from dataClasses.method import Method
+from dataClasses.visibility import Visibility
 from dataToCode.ToJava.interfaceToJava import InterfaceToJava
 
 parameter = Attribute("a", "int", Visibility.public)

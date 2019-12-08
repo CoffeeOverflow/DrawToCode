@@ -1,6 +1,6 @@
 from src.plantToCode.dataToCode.methodModifierToCode import MethodModifierToCode
-from src.plantToCode.method import Method
-from src.plantToCode.modifier import Modifier
+from dataClasses.method import Method
+from dataClasses.modifier import Modifier
 
 
 class MethodModifierToJava(MethodModifierToCode):

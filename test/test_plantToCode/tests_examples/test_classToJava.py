@@ -1,14 +1,14 @@
-from src.plantToCode.interface import Interface
-from src.plantToCode.method import Method
-from src.plantToCode.attribute import Attribute
-from src.plantToCode.classData import ClassData
+from dataClasses.interface import Interface
+from dataClasses.method import Method
+from dataClasses.attribute import Attribute
+from dataClasses.classData import ClassData
 from src.plantToCode.dataToCode.ToJava.classToJava import ClassToJava
-from src.plantToCode.modifier import Modifier
-from src.plantToCode.visibility import Visibility
+from dataClasses.modifier import Modifier
+from dataClasses.visibility import Visibility
 import os.path as path
 
 examples_folder = path.abspath(
-    path.join(__file__, "../../class_examples/java/"))
+    path.join(__file__, "../../code_examples/java/"))
 
 
 def test_java_example_1():

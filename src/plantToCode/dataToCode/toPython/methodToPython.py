@@ -1,10 +1,10 @@
 from typing import List
 
-from src.plantToCode.attribute import Attribute
+from dataClasses.attribute import Attribute
+from dataToCode.toPython.visibilityToPython import visibility_to_python
 from src.plantToCode.dataToCode.methodToCode import MethodToCode
-from src.plantToCode.method import Method
-from src.plantToCode.modifier import Modifier
-from src.plantToCode.visibility import Visibility
+from dataClasses.method import Method
+from dataClasses.modifier import Modifier
 
 
 class MethodToPython(MethodToCode):
@@ -19,7 +19,7 @@ class MethodToPython(MethodToCode):
 
     def __convert_method(self, method: Method) -> str:
         return (f"{self.__formatted_modifier(method)}"
-                f"def {self.__formatted_visibility(method)}"
+                f"def {visibility_to_python[method.visibility]}"
                 f"{method.name}("
                 f"{'self' if method.modifier is not Modifier.static else ''}"
                 f"{', ' if method.parameters and method.modifier is not Modifier.static else ''}"
@@ -33,14 +33,6 @@ class MethodToPython(MethodToCode):
         parameters = [f"{parameter.name}"
                       for parameter in parameters]
         return ', '.join(parameters)
-
-    def __formatted_visibility(self, method: Method) -> str:
-        if method.visibility is Visibility.private:
-            return "__"
-        elif method.visibility is Visibility.protected:
-            return "_"
-        else:
-            return ""
 
     def __formatted_modifier(self, method: Method) -> str:
         if method.modifier is Modifier.abstract or self.is_from_interface:

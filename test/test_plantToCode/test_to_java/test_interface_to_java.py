@@ -1,11 +1,6 @@
-import pytest
-from src.plantToCode.interface import Interface
+from dataClasses.interface import Interface
 from src.plantToCode.dataToCode.ToJava.interfaceToJava import InterfaceToJava
-from src.plantToCode.method import Method
-from src.plantToCode.visibility import Visibility
-from src.plantToCode.attribute import Attribute
-from src.plantToCode.modifier import Modifier
-from typing import List
+from dataClasses.method import Method
 
 
 def test_implemented_interface():
