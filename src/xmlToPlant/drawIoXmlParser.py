@@ -2,7 +2,6 @@ import xml.etree.ElementTree as ET
 from src.xmlToPlant.classParser import ClassParser
 from src.xmlToPlant.interfaceParser import InterfaceParser
 
-
 class DrawIoXmlParser:
 
     def __init__(self, filename: str) -> object:
@@ -11,20 +10,34 @@ class DrawIoXmlParser:
     @staticmethod
     def __extract_value_from_cells(root) -> list:
         list_of_xml_classes = []
+        superclass_to_subclasses = {}
+        implements_dict = {}
 
         for cell in root.iter('mxCell'):
             if cell.get('id') not in ['0', '1']:
                 if cell.get('value') == 'Extends':
-                    arrow_type = 'Extends'
-                    source_class = cell.get('source') #subclasse
-                    target_class = cell.get('target') #superclasse
-                elif cell.get('value') is None: #implements arrow
-                    arrow_type = 'Implements'
+                    subclass = cell.get('source')
+                    superclass = cell.get('target')
+
+                    try:
+                        superclass_to_subclasses[superclass].append(subclass)
+                    except KeyError:
+                        superclass_to_subclasses[superclass] = [subclass]
+
+                elif cell.get('value') == "":  # implements arrow
                     source_class = cell.get('source')
                     target_class = cell.get('target')  #interface
+
+                    try:
+                        implements_dict[target_class].append(source_class)
+                    except KeyError:
+                        implements_dict[target_class] = [source_class]
                 else:   
                     id = cell.get('id')
                     list_of_xml_classes.append(cell.get('value'))
+
+        print('extends', superclass_to_subclasses)
+        print('implements', implements_dict)
 
         return list_of_xml_classes
 
