@@ -1,0 +1,12 @@
+from abc import ABC, abstractmethod
+from ifoo import IFoo
+
+
+class Example(ABC, IFoo):
+	@abstractmethod
+	def foo(self, a, b):
+		pass
+
+	@abstractmethod
+	def do(self):
+		pass
