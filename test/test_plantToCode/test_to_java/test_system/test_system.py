@@ -12,8 +12,9 @@ from src.plantToCode.dataClasses.visibility import Visibility
 
 def test_strategy_example(tmpdir):
     def create_do_algorithm():
-        attribute = Attribute("data", "str")
-        method = Method("doAlgorithm", parameters=[attribute])
+        attribute = Attribute("data", "ArrayList<String>")
+        method = Method("doAlgorithm", parameters=[attribute],
+                        return_type="ArrayList<String>")
         return method
 
     def create_strategy():
@@ -45,8 +46,8 @@ def test_strategy_example(tmpdir):
     objects = [create_strategy(), create_context(), create_concrete_a(),
                create_concrete_b()]
     write_files(objects, tmpdir, "java")
-    files_path = ["strategy.java", "context.java", "concreteStrategyA.java",
-                  "concreteStrategyB.py"]
+    files_path = ["Strategy.java", "Context.java", "ConcreteStrategyA.java",
+                  "ConcreteStrategyB.py"]
     strategy_path = os.path.abspath(os.path.join(__file__,
                                                  "../strategy_example"))
     generated_path = [os.path.join(tmpdir, x) for x in files_path]
@@ -54,5 +55,7 @@ def test_strategy_example(tmpdir):
 
     for truth_file_path, generated_file_path in zip(truth_path,
                                                     generated_path):
+        
+        print(filecmp.cmp(truth_file_path, generated_file_path))
         assert filecmp.cmp(truth_file_path, generated_file_path)
 

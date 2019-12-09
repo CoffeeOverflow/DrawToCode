@@ -14,7 +14,7 @@ class ClassToJava(ClassToCode):
         self.inheritance_to_code = InheritanceToJava(self.class_data.inheritances)
 
     def convert(self) -> str:
-        return (f"{self.__formatted_class_header()}"
+        return (f"import java.util.*;\n\n{self.__formatted_class_header()}"
                 f"{self.__formatted_fields()}\n\n"
                 f"{self.method_to_code.get_formatted_methods()}\n"
                 f"}}")
