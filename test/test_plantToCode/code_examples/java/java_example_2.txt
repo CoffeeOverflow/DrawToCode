@@ -1,5 +1,6 @@
-public class Orc extends Monster implements IWalk, IAttack {
+import java.util.*;
 
+public class Orc extends Monster implements IWalk, IAttack {
 
 	public void attack(int damage, Entity entity, Bonus bonus) {
 		throw new UnsupportedOperationException();
