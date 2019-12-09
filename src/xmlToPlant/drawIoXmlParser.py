@@ -28,7 +28,7 @@ class DrawIoXmlParser:
                     except KeyError:
                         superclass_to_subclasses[superclass] = [subclass]
 
-                elif cell.get('value') == "":  # implements arrow
+                elif "endArrow=block;dashed=1" in cell.get('style'):  # implements arrow
                     source_class = cell.get('source')
                     target_class = cell.get('target')  # interface
 
@@ -44,13 +44,13 @@ class DrawIoXmlParser:
         print('extends', superclass_to_subclasses)
         print('implements', implements_dict)
 
-        return list_of_xml_classes, list_of_ids
+        return list_of_xml_classes, list_of_ids, superclass_to_subclasses, implements_dict
 
     def read_xml(self):
         xml = ET.parse(self.filename)
         root = xml.getroot()
 
-        list_of_xml_classes, ids_list = self.__extract_value_from_cells(root)
+        list_of_xml_classes, ids_list, extends_dict, implements_dict = self.__extract_value_from_cells(root)
 
         list_of_classes = []
         list_of_interfaces = []
@@ -67,6 +67,25 @@ class DrawIoXmlParser:
                 ids_to_names[class_id] = class_.name
 
         print(ids_to_names)
+
+        name_to_name = {}
+
+        for superclass_id, subclasses in extends_dict.items():
+            superclass_name = ids_to_names[superclass_id]
+            name_to_name[superclass_name] = []
+            for subclass_id in subclasses:
+                name_to_name[superclass_name].append(ids_to_names[subclass_id])
+
+        print(name_to_name)
+
+        implements_names = {}
+        for superclass_id, subclasses in implements_dict.items():
+            superclass_name = ids_to_names[superclass_id]
+            implements_names[superclass_name] = []
+            for subclass_id in subclasses:
+                implements_names[superclass_name].append(ids_to_names[subclass_id])
+
+        print(implements_names)
 
         if list_of_classes:
             for class_ in list_of_classes:
