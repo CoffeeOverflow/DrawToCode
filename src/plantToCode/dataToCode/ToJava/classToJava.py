@@ -14,8 +14,8 @@ class ClassToJava(ClassToCode):
         self.inheritance_to_code = InheritanceToJava(self.class_data.inheritances)
 
     def convert(self) -> str:
-        return (f"import java.util.*;\n\n{self.__formatted_class_header()}"
-                f"{self.__formatted_fields()}\n\n"
+        return (f"import java.util.*;\n\n{self.__formatted_class_header()}\n"
+                f"{self.__formatted_fields()}"
                 f"{self.method_to_code.get_formatted_methods()}\n"
                 f"}}")
 
@@ -27,6 +27,10 @@ class ClassToJava(ClassToCode):
                 f" {{\n")
 
     def __formatted_fields(self):
-        class_fields = [f"\t{fields.visibility.value} {fields.type_} {fields.name};"
+        if len(self.class_data.fields) > 0:
+            class_fields = [f"\t{fields.visibility.value} {fields.type_} {fields.name};"
                         for fields in self.class_data.fields]
-        return '\n'.join(class_fields)
+
+            return '\n'.join(class_fields) + "\n\n"
+        else:
+            return ""

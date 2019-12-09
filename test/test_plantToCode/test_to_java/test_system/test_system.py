@@ -47,7 +47,7 @@ def test_strategy_example(tmpdir):
                create_concrete_b()]
     write_files(objects, tmpdir, "java")
     files_path = ["Strategy.java", "Context.java", "ConcreteStrategyA.java",
-                  "ConcreteStrategyB.py"]
+                  "ConcreteStrategyB.java"]
     strategy_path = os.path.abspath(os.path.join(__file__,
                                                  "../strategy_example"))
     generated_path = [os.path.join(tmpdir, x) for x in files_path]

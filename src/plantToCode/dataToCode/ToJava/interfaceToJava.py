@@ -12,9 +12,9 @@ class InterfaceToJava(InterfaceToCode):
 
     def convert(self) -> str:
         
-        return (f"import java.util.*;\n\n\n"
+        return (f"import java.util.*;\n\n"
                 f"{self.interface.visibility.name} interface {self.interface.name}"
-                f"{self.codeImplementedInterfaces(self.interface.interfaces)} {{\n"
+                f"{self.codeImplementedInterfaces(self.interface.interfaces)} {{\n\n"
                 f"{self.method_to_code.get_formatted_methods()}\n"
                 f"}}")
 
