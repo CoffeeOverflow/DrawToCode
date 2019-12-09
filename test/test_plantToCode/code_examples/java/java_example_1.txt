@@ -1,4 +1,7 @@
+import java.util.*;
+
 public class Dog {
+
 	public String name;
 	private int age;
 

@@ -8,7 +8,7 @@ def test_convert_interface():
     interface = Interface("interface_example", [method])
     interface_java = InterfaceToJava(interface)
     output = interface_java.convert()
-    expected = "import java.util.*;\n\n\npublic interface interface_example {\n\tpublic void example();\n}"
+    expected = "import java.util.*;\n\npublic interface interface_example {\n\n\tpublic void example();\n}"
     assert output == expected
 
 def test_convert_interface_wit_implement_interface():
@@ -17,8 +17,8 @@ def test_convert_interface_wit_implement_interface():
     interface2 = Interface("interface2", [method], interfaces=[interface1])
     interface_java2 = InterfaceToJava(interface2)
     output = interface_java2.convert()
-    expected = (f"import java.util.*;\n\n\npublic interface interface2 " 
-                f"implements interface1 {{\n\tpublic void example();\n}}")
+    expected = (f"import java.util.*;\n\npublic interface interface2 " 
+                f"implements interface1 {{\n\n\tpublic void example();\n}}")
     assert output == expected
 
 def test_convert_interface_wit_implement_interfacee():
@@ -29,6 +29,6 @@ def test_convert_interface_wit_implement_interfacee():
                                                                interface3])
     interface_java2 = InterfaceToJava(interface2)
     output = interface_java2.convert()
-    expected = (f"import java.util.*;\n\n\npublic interface interface2 " 
-                f"implements interface1, interface3 {{\n\tpublic void example();\n}}")
+    expected = (f"import java.util.*;\n\npublic interface interface2 " 
+                f"implements interface1, interface3 {{\n\n\tpublic void example();\n}}")
     assert output == expected
