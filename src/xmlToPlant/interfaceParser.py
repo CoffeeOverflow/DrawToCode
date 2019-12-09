@@ -24,7 +24,7 @@ class InterfaceParser:
 
         interface_name = result[0].b.string
 
-        list_of_methods_string_literals = str(result[2]).split("<br/>")
+        list_of_methods_string_literals = str(result[1]).split("<br/>")
         list_of_methods_string_literals[0] = \
             list_of_methods_string_literals[0].replace("<p style=\"margin: 0px ; margin-left: 4px\">", "")
         list_of_methods_string_literals[-1] = \

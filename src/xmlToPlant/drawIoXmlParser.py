@@ -1,6 +1,9 @@
 import xml.etree.ElementTree as ET
+
+from src.plantToCode.dataClasses import interface
 from src.xmlToPlant.classParser import ClassParser
 from src.xmlToPlant.interfaceParser import InterfaceParser
+
 
 class DrawIoXmlParser:
 
@@ -10,6 +13,7 @@ class DrawIoXmlParser:
     @staticmethod
     def __extract_value_from_cells(root) -> list:
         list_of_xml_classes = []
+        list_of_ids = []
         superclass_to_subclasses = {}
         implements_dict = {}
 
@@ -26,35 +30,43 @@ class DrawIoXmlParser:
 
                 elif cell.get('value') == "":  # implements arrow
                     source_class = cell.get('source')
-                    target_class = cell.get('target')  #interface
+                    target_class = cell.get('target')  # interface
 
                     try:
                         implements_dict[target_class].append(source_class)
                     except KeyError:
                         implements_dict[target_class] = [source_class]
-                else:   
-                    id = cell.get('id')
+                else:
+                    print(cell.get('id'))
+                    list_of_ids.append(cell.get('id'))
                     list_of_xml_classes.append(cell.get('value'))
 
         print('extends', superclass_to_subclasses)
         print('implements', implements_dict)
 
-        return list_of_xml_classes
+        return list_of_xml_classes, list_of_ids
 
     def read_xml(self):
         xml = ET.parse(self.filename)
         root = xml.getroot()
 
-        list_of_xml_classes = self.__extract_value_from_cells(root)
+        list_of_xml_classes, ids_list = self.__extract_value_from_cells(root)
 
         list_of_classes = []
         list_of_interfaces = []
+        ids_to_names = {}
 
-        for uml_data in list_of_xml_classes:
+        for uml_data, class_id in zip(list_of_xml_classes, ids_list):
             if "Interface" in uml_data:
-                list_of_interfaces.append(InterfaceParser.read_xml(uml_data))
+                interface_ = InterfaceParser.read_xml(uml_data)
+                list_of_interfaces.append(interface_)
+                ids_to_names[class_id] = interface_.name
             else:
-                list_of_classes.append(ClassParser.read_xml(uml_data))
+                class_ = ClassParser.read_xml(uml_data)
+                list_of_classes.append(class_)
+                ids_to_names[class_id] = class_.name
+
+        print(ids_to_names)
 
         if list_of_classes:
             for class_ in list_of_classes:

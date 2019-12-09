@@ -17,6 +17,7 @@ class ClassParser:
     def read_xml(uml_data: str):
         list_of_attributes = []
         list_of_methods = []
+        id_to_name = {}
 
         html = bs(uml_data, 'html.parser')
 
@@ -28,6 +29,7 @@ class ClassParser:
             if result[i].string is not None:
                 if i == 0:
                     class_name = result[i].b.string
+                    id_to_name[id] = class_name
                 else:
                     visibility = VisibilityExtractor.extract_visibility(result[i].string)
                     type_ = ReturnTypeExtractor.extract_type(result[i].string)
