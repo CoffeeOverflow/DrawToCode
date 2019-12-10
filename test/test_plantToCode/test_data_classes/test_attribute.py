@@ -10,7 +10,7 @@ testdata = [
  (["a", "int", Visibility.public], ["a", "float", Visibility.private], False),
  (["a", "int", Visibility.public], ["a", "float", Visibility.public], False),
  (["a", "int", Visibility.public], ["a", "int", Visibility.private], False),
- (["a", "int", Visibility.public], ["a", "int", Visibility.public], False),
+ (["a", "int", Visibility.public], ["a", "int", Visibility.public], True),
 ]
 
 
