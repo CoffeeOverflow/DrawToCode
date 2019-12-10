@@ -1,9 +1,9 @@
 ![DrawToCode](docs/Draw2CodeLogo.png)
 
-DrawToCode receives a UML diagram from [Draw.io](https://www.draw.io/) and makes code from it. 
+DrawToCode receives an UML diagram from [Draw.io](https://www.draw.io/) and 
+makes code from it. 
 
 ## Getting Started 
-
 
 We don't have the intent to cover all Draw.io features and all programming
 languages, to know what you can
@@ -16,7 +16,6 @@ use, go to the [Wiki](https://github.com/CoffeeOverflow/DrawToCode/wiki).
 
 You can add another language by following the instructions on the 
 [Wiki](https://github.com/CoffeeOverflow/DrawToCode/wiki).
-
 
 ### Prerequisites
 
@@ -74,9 +73,7 @@ for details.
 ## Acknowledgments
 
 This repository was developed as the final project of the Systems Analysis &
-Projet course, with the guidance of [Gustavo Pinto](https://github.com/gustavopinto),
+Project course, with the guidance of [Gustavo Pinto](https://github.com/gustavopinto),
 a professor at the Federal University of Pará.
 
 [![UFPA](docs/logo_ufpa_github_footer.png)](https://portal.ufpa.br/ "Visite o site da UFPA")
-
-
