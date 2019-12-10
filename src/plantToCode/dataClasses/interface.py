@@ -13,3 +13,14 @@ class Interface:
         self.methods = methods
         self.interfaces = interfaces
         self.visibility = visibility
+
+    def __eq__(self, other: "Interface"):
+        cond1 = self.name == other.name
+        cond2 = self.methods == other.methods
+        cond3 = self.interfaces == other.interfaces
+        cond4 = self.visibility == other.visibility
+
+        if cond1 and cond2 and cond3 and cond4:
+            return True
+        else:
+            return False
