@@ -1,4 +1,4 @@
-# DrawToCode
+![DrawToCode](docs/Draw2CodeLogo.png)
 
 DrawToCode receives a UML diagram from [Draw.io](https://www.draw.io/) and makes code from it. 
 
@@ -20,7 +20,7 @@ You can add another language by following the instructions on the
 
 ### Prerequisites
 
-* Python3.6.7+
+* Python 3.6.7+
 
 Install required packages by:
 
