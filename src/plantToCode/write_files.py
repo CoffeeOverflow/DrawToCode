@@ -9,9 +9,7 @@ from src.plantToCode.dataToCode.languageInterface import LanguageInterface
 from typing import List, Union
 
 
-def write_files(objects: List[Union[ClassData, Interface]], 
-                path: str, language: str) -> None:
-
+def select_language(language: str) -> LanguageInterface:
     language_writer: LanguageInterface
     if language == "python":
         language_writer = LanguagePython()
@@ -19,7 +17,13 @@ def write_files(objects: List[Union[ClassData, Interface]],
         language_writer = LanguageJava()
     else:
         raise ValueError("This language is not implemented")
+    return language_writer
 
+
+def write_files(objects: List[Union[ClassData, Interface]], 
+                path: str, language: str) -> None:
+
+    language_writer = select_language(language)
     for element in objects:
         print(type(element))
         if type(element) == ClassData:
