@@ -8,6 +8,7 @@ from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataClasses.method import Method
 from src.plantToCode.write_files import write_files
 from src.plantToCode.dataClasses.visibility import Visibility
+from src.plantToCode.dataClasses.modifier import Modifier
 
 
 def test_strategy_example(tmpdir):
@@ -124,9 +125,11 @@ def test_ultimate_example(tmpdir):
         hours = Attribute("hours", "int", visibility=Visibility.public)
         spell = Attribute("spell", "ISpell", visibility=Visibility.public)
 
-        attack = Method("attack", parameters=[damage])
+        attack = Method("attack", parameters=[damage],
+                        modifier=Modifier.override)
         sleep = Method("sleep", parameters=[hours], 
-                       visibility=Visibility.private)
+                       visibility=Visibility.private, 
+                       modifier=Modifier.override)
 
         orc = create_orc()
 
@@ -150,7 +153,7 @@ def test_ultimate_example(tmpdir):
         heart_attack = Attribute("heartAttackChance", "int",
                                  visibility=Visibility.public)
         
-        eat = Method("eat", parameters=[food])
+        eat = Method("eat", parameters=[food], modifier=Modifier.override)
 
         fat_orc = create_fat_orc()
 
