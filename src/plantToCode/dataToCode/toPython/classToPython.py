@@ -8,7 +8,15 @@ from src.plantToCode.dataToCode.toPython.fileNameToPython import FileNameToPytho
 class ClassToPython(ClassToCode):
     def __init__(self, class_data: ClassData):
         self.class_data = class_data
-        self.method_to_code = MethodToPython(self.class_data.methods, False)
+        all_methods = self.class_data.methods
+        
+        for implementation in self.class_data.implementations:
+            for method in implementation.methods:
+                if method not in all_methods:
+                    all_methods.append(method)
+
+        all_methods = list(all_methods)
+        self.method_to_code = MethodToPython(all_methods, False)
         self.init_to_python = InitToPython(self.class_data.fields)
 
     def convert(self) -> str:
