@@ -1,6 +1,7 @@
 from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataToCode.interfaceToCode import InterfaceToCode
 from src.plantToCode.dataToCode.toPython.methodToPython import MethodToPython
+from src.plantToCode.dataToCode.toPython.fileNameToPython import FileNameToPython
 
 
 class InterfaceToPython(InterfaceToCode):
@@ -15,7 +16,7 @@ class InterfaceToPython(InterfaceToCode):
                 f"\n{self.method_to_code.get_formatted_methods()}\n")
 
     def __formatted_imports(self) -> str:
-        imports = [f"from {inheritance.name.lower()} import {inheritance.name}"
+        imports = [f"from {FileNameToPython(inheritance).get_file_name()[:-3]} import {inheritance.name}"
                    for inheritance in self.interface.interfaces]
         space = '\n\n\n' if self.interface.interfaces else '\n\n'
         return "from abc import ABC, abstractmethod\n" + '\n'.join(imports) + space

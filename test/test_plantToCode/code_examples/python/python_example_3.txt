@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from idomanythings import IDoManyThings
+from i_do_many_things import IDoManyThings
 
 
 class WeirdGodClass(IDoManyThings):

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from ifoo import IFoo
+from i_foo import IFoo
 
 
 class Example(ABC, IFoo):
