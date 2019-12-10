@@ -72,8 +72,8 @@ for details.
 
 ## Acknowledgments
 
-This repository was developed as the final project of the Systems Analysis &
-Project course, with the guidance of [Gustavo Pinto](https://github.com/gustavopinto),
+This repository was developed as the final project of the [Project Analysis and
+Design](http://gustavopinto.org/teaching/pad) course, with the guidance of [Gustavo Pinto](https://github.com/gustavopinto),
 a professor at the Federal University of Pará.
 
 [![UFPA](docs/logo_ufpa_github_footer.png)](https://portal.ufpa.br/ "Visite o site da UFPA")
