@@ -24,8 +24,6 @@ def test_java_example_1():
         expected = java_example.read()
 
     result = ClassToJava(dog_class).convert()
-    with open("/tmp/example.1", "w") as f:
-        f.write(result)
     assert result == expected
 
 
