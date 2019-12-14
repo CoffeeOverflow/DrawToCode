@@ -30,8 +30,9 @@ class ClassToPython(ClassToCode):
         inheritances = self.class_data.inheritances + self.class_data.implementations
         imports = [f"from {FileNameToPython(inheritance).get_file_name()[:-3]} import {inheritance.name}"
                    for inheritance in inheritances]
-        space = '\n\n\n' if inheritances else ''
-        return self.__optional_abc_import() + '\n'.join(imports) + space
+        optional_import = self.__optional_abc_import()
+        space = '\n\n\n' if inheritances else '\n\n' if optional_import else ""
+        return optional_import + '\n'.join(imports) + space
 
     def __optional_abc_import(self) -> str:
         for method in self.class_data.methods:
