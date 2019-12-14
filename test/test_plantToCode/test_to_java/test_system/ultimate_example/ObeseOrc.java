@@ -1,10 +1,11 @@
 import java.util.*;
 
-public class ObeseOrc {
+public class ObeseOrc extends FatOrc {
 
-    public int heartAttackChance;
+	public int heartAttackChance;
 
-    public void eat(IFood food) {
-        throw new UnsupportedOperationException();
-    }
+	@override
+	public void eat(IFood food) {
+		throw new UnsupportedOperationException();
+	}
 }
