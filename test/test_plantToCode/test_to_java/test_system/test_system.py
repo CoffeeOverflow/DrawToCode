@@ -85,10 +85,9 @@ def test_ultimate_example_java(tmpdir):
         return weapon
 
     def create_attribute():
-        method = Method("method")
-        field = Attribute("field", "Type", visibility=Visibility.public)
-        attribute = ClassData("Attribute", methods=[method],
-                               fields=[field])
+        field1 = Attribute("value", "float", visibility=Visibility.public)
+        field2 = Attribute("multiplier", "float", visibility=Visibility.public)
+        attribute = ClassData("Attribute", fields=[field1, field2])
         return attribute
 
     def create_walk():
@@ -105,6 +104,7 @@ def test_ultimate_example_java(tmpdir):
     def create_orc():
         name = Attribute("name", "String", visibility=Visibility.public)
         age = Attribute("age", "int", visibility=Visibility.private)
+        weapon = Attribute("weapon", "Weapon", visibility=Visibility.private)
         damage = Attribute("damage", "int", visibility=Visibility.public)
         hours = Attribute("hours", "int", visibility=Visibility.public)
         
@@ -114,16 +114,17 @@ def test_ultimate_example_java(tmpdir):
         attack_method = Method("attack", parameters=[damage])
         sleep = Method("sleep", parameters=[hours],
                        visibility=Visibility.private)
+        walk_method = Method("walk", parameters=[])
 
-        orc = ClassData("Orc", methods=[attack_method, sleep], 
-                        fields=[name, age], 
+        orc = ClassData("Orc", methods=[attack_method, walk_method, sleep],
+                        fields=[name, age, weapon],
                         implementations=[attack_interface, walk])
         return orc
     
     def create_high_orc():
         damage = Attribute("damage", "int", visibility=Visibility.public)
         hours = Attribute("hours", "int", visibility=Visibility.public)
-        spell = Attribute("spell", "ISpell", visibility=Visibility.public)
+        spell = Attribute("spell", "ISpell", visibility=Visibility.protected)
 
         attack = Method("attack", parameters=[damage],
                         modifier=Modifier.override)
