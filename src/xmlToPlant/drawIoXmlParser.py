@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
+from typing import Tuple, Dict
 
-from src.plantToCode.dataClasses import interface
 from src.xmlToPlant.classParser import ClassParser
 from src.xmlToPlant.interfaceParser import InterfaceParser
 
@@ -11,7 +11,7 @@ class DrawIoXmlParser:
         self.filename = filename
 
     @staticmethod
-    def __extract_value_from_cells(root) -> list:
+    def extract_value_from_cells(root) -> Tuple[list, list, Dict[str, list], Dict[str, list]]:
         list_of_xml_classes = []
         list_of_ids = []
         superclass_to_subclasses = {}
@@ -37,12 +37,8 @@ class DrawIoXmlParser:
                     except KeyError:
                         implements_dict[target_class] = [source_class]
                 else:
-                    print(cell.get('id'))
                     list_of_ids.append(cell.get('id'))
                     list_of_xml_classes.append(cell.get('value'))
-
-        print('extends', superclass_to_subclasses)
-        print('implements', implements_dict)
 
         return list_of_xml_classes, list_of_ids, superclass_to_subclasses, implements_dict
 
@@ -50,7 +46,7 @@ class DrawIoXmlParser:
         xml = ET.parse(self.filename)
         root = xml.getroot()
 
-        list_of_xml_classes, ids_list, extends_dict, implements_dict = self.__extract_value_from_cells(root)
+        list_of_xml_classes, ids_list, extends_dict, implements_dict = self.extract_value_from_cells(root)
 
         list_of_classes = []
         list_of_interfaces = []
@@ -66,43 +62,28 @@ class DrawIoXmlParser:
                 list_of_classes.append(class_)
                 ids_to_names[class_id] = class_.name
 
-        print(ids_to_names)
-
-        name_to_name = {}
-
         for superclass_id, subclasses in extends_dict.items():
             superclass_name = ids_to_names[superclass_id]
-            name_to_name[superclass_name] = []
             for subclass_id in subclasses:
-                name_to_name[superclass_name].append(ids_to_names[subclass_id])
+                list_of_inheritances = []
+                subclass_name = ids_to_names[subclass_id]
+                for class_ in list_of_classes:
+                    if class_.name == subclass_name:
+                        for superclass_ in list_of_classes:
+                            if superclass_name == superclass_.name:
+                                list_of_inheritances.append(superclass_)
+                        class_.inheritances = list_of_inheritances.copy()
 
-        print(name_to_name)
-
-        implements_names = {}
-        for superclass_id, subclasses in implements_dict.items():
-            superclass_name = ids_to_names[superclass_id]
-            implements_names[superclass_name] = []
-            for subclass_id in subclasses:
-                implements_names[superclass_name].append(ids_to_names[subclass_id])
-
-        print(implements_names)
-
-        if list_of_classes:
-            for class_ in list_of_classes:
-                print(class_.name)
-                for attribute in class_.fields:
-                    print(attribute.visibility, attribute.name, attribute.type_)
-                for method in class_.methods:
-                    print(method.visibility, method.name, method.return_type)
-                    for parameter in method.parameters:
-                        print(parameter.name, parameter.type_)
-
-        if list_of_interfaces:
-            for interface_ in list_of_interfaces:
-                print(interface_.name)
-                for method in interface_.methods:
-                    print(method.visibility, method.name, method.return_type)
-                    for parameter in method.parameters:
-                        print(parameter.name, parameter.type_)
+        for interface_id, subclasses in implements_dict.items():
+            interface_name = ids_to_names[interface_id]
+            for class_id in subclasses:
+                list_of_interfaces_implemented = []
+                class_name = ids_to_names[class_id]
+                for class_ in list_of_classes:
+                    if class_.name == class_name:
+                        for interface_ in list_of_interfaces:
+                            if interface_name == interface_.name:
+                                list_of_interfaces_implemented.append(interface_)
+                        class_.implementations = list_of_interfaces_implemented.copy()
 
         return list_of_classes, list_of_interfaces
