@@ -1,0 +1,11 @@
+from abc import ABC, abstractmethod
+
+
+class Test4():
+
+	def __init__(self, m):
+		self.m = m
+
+	@abstractmethod
+	def v(self):
+		pass

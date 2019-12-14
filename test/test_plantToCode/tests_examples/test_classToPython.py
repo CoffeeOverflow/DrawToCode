@@ -70,3 +70,16 @@ def test_python_example_3():
 
     result = ClassToPython(weird_god_class).convert()
     assert result == expected
+
+
+def test_python_example_4():
+    att1 = Attribute("m", "String", Visibility.public)
+
+    method = Method("v", "void", [], Visibility.public, modifier=Modifier.abstract)
+    dog_class = ClassData("Test4", [att1], [method])
+
+    with open(path.join(examples_folder, "python_example_4.txt"), 'r') as python_example:
+        expected = python_example.read()
+
+    result = ClassToPython(dog_class).convert()
+    assert result == expected
