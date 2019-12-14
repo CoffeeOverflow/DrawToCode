@@ -13,12 +13,8 @@ def run(xml_file, code_path, language):
     """Program that writes code of an UML class diagram"""
     draw_io_xml_parser = DrawIoXmlParser(xml_file)
     list_of_classes, list_of_interfaces = draw_io_xml_parser.read_xml()
-    objects = []
 
-    for class_ in list_of_classes:
-        objects.append(class_)
-    for interface_ in list_of_interfaces:
-        objects.append(interface_)
+    objects = list_of_classes + list_of_interfaces
 
     write_files(objects, code_path, language)
 
