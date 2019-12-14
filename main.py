@@ -5,10 +5,13 @@ from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
 
 
 @click.command()
-@click.option('--xml_file', help='The XML file path')
-@click.option('--code_path', help='The path of the code to be written')
-@click.option('--language', help=(f'The programming language of the code to be '
-                                  f'written'))
+@click.option('--xml_file', required=True, prompt=True, type=click.File(mode='r'),
+              help='The XML file path')
+@click.option('--code_path', required=True, prompt=True, type=click.Path(exists=True),
+              help='The path of the code to be written')
+@click.option('--language', required=True, prompt=True,
+              type=click.Choice(['python', 'java'], case_sensitive=False),
+              help='The programming language of the code to be written')
 def run(xml_file, code_path, language):
     """Program that writes code of an UML class diagram"""
     draw_io_xml_parser = DrawIoXmlParser(xml_file)
