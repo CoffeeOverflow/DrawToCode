@@ -31,6 +31,7 @@ class ClassToJava(ClassToCode):
             class_fields = [f"\t{fields.visibility.value} {fields.type_} {fields.name};"
                         for fields in self.class_data.fields]
 
-            return '\n'.join(class_fields) + "\n\n"
+            return '\n'.join(class_fields) + \
+                   ("\n\n" if self.class_data.methods else "")
         else:
             return ""
