@@ -2,7 +2,7 @@ import pytest
 from src.xmlToPlant.regexExtractors.returnTypeExtractor import ReturnTypeExtractor
 
 
-@pytest.mark.parametrize("xml_string", ["- age: int         ", "#        weight:    int       ",
+@pytest.mark.parametrize("xml_string", ["- age:int         ", "#        weight:    int       ",
                                         "     +      height:               int"])
 def test_extract_type_int_from_attributes(xml_string):
     type_ = ReturnTypeExtractor.extract_type(xml_string)

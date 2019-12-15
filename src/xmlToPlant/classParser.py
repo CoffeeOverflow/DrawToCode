@@ -15,6 +15,8 @@ class ClassParser:
 
     @staticmethod
     def read_xml(uml_data: str):
+        uml_data = uml_data.replace("<br>", "")
+        uml_data = uml_data.replace("<br/>", "")
         list_of_attributes = []
         list_of_methods = []
         id_to_name = {}

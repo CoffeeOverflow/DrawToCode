@@ -11,4 +11,4 @@ class ReturnTypeExtractor:
         if ')' in list_of_types[-1]:
             return list_of_types[-1].split(':')[1].lstrip()
 
-        return list_of_types[-1][2:].lstrip()
+        return list_of_types[-1][1:].lstrip()
