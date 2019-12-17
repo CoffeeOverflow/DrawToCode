@@ -36,7 +36,7 @@ class DrawIoXmlParser:
                         implements_dict[target_class].append(source_class)
                     except KeyError:
                         implements_dict[target_class] = [source_class]
-                elif "endArrow" not in cell.get('style'):
+                elif "<b>" in cell.get('value'):
                     list_of_ids.append(cell.get('id'))
                     list_of_xml_classes.append(cell.get('value'))
 

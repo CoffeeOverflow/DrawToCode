@@ -10,7 +10,7 @@ import os.path as path
 import xml.etree.ElementTree as ET
 
 
-'''def test_interfaces_returned_read_xml():
+def test_interfaces_returned_read_xml():
     examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToData/uml_samples/uml_interface.xml"))
     interface_ = Interface("CalculoDeSalario", [Method("calcular_salario_1", "float",
                                                        [Attribute("funcionario", "Funcionario")]),
@@ -43,7 +43,7 @@ def test_extract_value_from_cells():
     assert implements_dict == {}
     assert superclass_to_subclasses == {}
     assert list_of_xml_classes == list_of_xml_classes_
-    assert list_of_ids == list_of_ids_'''
+    assert list_of_ids == list_of_ids_
 
 
 def test():
