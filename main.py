@@ -1,7 +1,7 @@
 import click
 
-from src.plantToCode.write_files import write_files
-from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
+from src.dataToCode.write_files import write_files
+from src.xmlToData.drawIoXmlParser import DrawIoXmlParser
 
 
 @click.command()
