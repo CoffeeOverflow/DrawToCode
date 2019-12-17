@@ -1,6 +1,7 @@
 import pytest
 import os
 import filecmp
+import subprocess
 
 from src.dataToCode.dataClasses.attribute import Attribute
 from src.dataToCode.dataClasses.classData import ClassData
@@ -57,6 +58,26 @@ def test_strategy_example_java(tmpdir):
                                                     generated_path):
         
         print(filecmp.cmp(truth_file_path, generated_file_path))
+        assert filecmp.cmp(truth_file_path, generated_file_path)
+
+
+def test_strategy_xml(tmpdir):
+
+    main_path = os.path.abspath(os.path.join(__file__,"../../../../../main.py"))
+    xml_path = os.path.abspath(os.path.join(__file__,"../../../../strategy.xml"))
+    subprocess.run(["python3", main_path,
+                    f"--xml_file={xml_path}", f"--code_path={tmpdir}",
+                    "--language=java"])
+    files_path = ["Strategy.java", "Context.java", 
+                  "ConcreteStrategyA.java",
+                  "ConcreteStrategyB.java"]
+    strategy_path = os.path.abspath(os.path.join(__file__,
+                                                 "../strategy_example"))
+    generated_path = [os.path.join(tmpdir, x) for x in files_path]
+    truth_path = [os.path.join(strategy_path, x) for x in files_path]
+
+    for truth_file_path, generated_file_path in zip(truth_path,
+                                                    generated_path):
         assert filecmp.cmp(truth_file_path, generated_file_path)
 
 def test_ultimate_example_java(tmpdir):
