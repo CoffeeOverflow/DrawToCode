@@ -75,6 +75,6 @@ for details.
 
 This repository was developed as the final project of the [Project Analysis and
 Design](http://gustavopinto.org/teaching/pad) course, with the guidance of [Gustavo Pinto](https://github.com/gustavopinto),
-a professor at the Federal University of Pará.
+a professor at the Federal University of Pará. Click [here](https://docs.google.com/presentation/d/1j5E7s0f4vdqB3NgDm9Xl38Vo6kSPYseHy_20xzKqSos/edit?usp=sharing) to see the project presentation.
 
 [![UFPA](docs/logo_ufpa_github_footer.png)](https://portal.ufpa.br/ "Visite o site da UFPA")
