@@ -4,5 +4,5 @@ from abc import ABC, abstractmethod
 class Strategy(ABC):
 
 	@abstractmethod
-	def do_algorithm(self, data):
+	def doAlgorithm(self, data):
 		pass

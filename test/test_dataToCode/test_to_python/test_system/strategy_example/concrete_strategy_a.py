@@ -6,5 +6,5 @@ class ConcreteStrategyA(Strategy):
 	def __init__(self):
 		pass
 
-	def do_algorithm(self, data):
+	def doAlgorithm(self, data):
 		pass
