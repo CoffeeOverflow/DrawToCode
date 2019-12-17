@@ -2,7 +2,7 @@ import pytest
 
 from src.plantToCode.dataClasses.classData import ClassData
 from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.dataToCode.toPython.fileNameToPython import FileNameToPython
+from src.plantToCode.languages.toPython.fileNameToPython import FileNameToPython
 
 data = [
     ("Orc", "orc.py"),

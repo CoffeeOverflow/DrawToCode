@@ -1,5 +1,5 @@
 import pytest
-from src.plantToCode.dataToCode.ToJava.fileNameToJava import FileNameToJava
+from src.plantToCode.languages.ToJava.fileNameToJava import FileNameToJava
 from src.plantToCode.dataClasses.classData import ClassData
 from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataClasses.method import Method

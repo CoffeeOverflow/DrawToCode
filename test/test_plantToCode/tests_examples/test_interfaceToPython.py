@@ -1,7 +1,7 @@
 from src.plantToCode.dataClasses.attribute import Attribute
 from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataClasses.method import Method
-from src.plantToCode.dataToCode.toPython.interfaceToPython import InterfaceToPython
+from src.plantToCode.languages.toPython.interfaceToPython import InterfaceToPython
 from src.plantToCode.dataClasses.visibility import Visibility
 import os.path as path
 

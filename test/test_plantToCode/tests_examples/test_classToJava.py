@@ -2,7 +2,7 @@ from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataClasses.method import Method
 from src.plantToCode.dataClasses.attribute import Attribute
 from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataToCode.ToJava.classToJava import ClassToJava
+from src.plantToCode.languages.ToJava.classToJava import ClassToJava
 from src.plantToCode.dataClasses.modifier import Modifier
 from src.plantToCode.dataClasses.visibility import Visibility
 import os.path as path

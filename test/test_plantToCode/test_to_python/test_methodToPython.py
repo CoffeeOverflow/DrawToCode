@@ -1,5 +1,5 @@
 import pytest
-from src.plantToCode.dataToCode.toPython.methodToPython import MethodToPython
+from src.plantToCode.languages.toPython.methodToPython import MethodToPython
 from src.plantToCode.dataClasses.method import Method
 from src.plantToCode.dataClasses.visibility import Visibility
 from src.plantToCode.dataClasses.attribute import Attribute

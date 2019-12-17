@@ -2,7 +2,7 @@ from src.plantToCode.dataClasses.interface import Interface
 from src.plantToCode.dataClasses.method import Method
 from src.plantToCode.dataClasses.attribute import Attribute
 from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataToCode.toPython.classToPython import ClassToPython
+from src.plantToCode.languages.toPython.classToPython import ClassToPython
 from src.plantToCode.dataClasses.modifier import Modifier
 from src.plantToCode.dataClasses.visibility import Visibility
 import os.path as path
