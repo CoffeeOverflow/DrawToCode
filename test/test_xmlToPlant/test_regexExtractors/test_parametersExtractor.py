@@ -1,6 +1,6 @@
 import pytest
 
-from src.xmlToPlant.regexExtractors.parametersExtractor import ParametersExtractor
+from src.xmlToData.regexExtractors.parametersExtractor import ParametersExtractor
 
 
 @pytest.mark.parametrize("xml_string", ["+ get_age(): int",

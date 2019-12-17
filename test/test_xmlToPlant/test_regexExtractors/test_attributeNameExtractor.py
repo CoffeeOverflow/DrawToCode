@@ -1,6 +1,6 @@
 import pytest
 
-from src.xmlToPlant.regexExtractors.attributeNameExtractor import AttributeNameExtractor
+from src.xmlToData.regexExtractors.attributeNameExtractor import AttributeNameExtractor
 
 
 @pytest.mark.parametrize("xml_string", ["-      age       :  int         ",

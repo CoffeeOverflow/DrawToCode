@@ -4,11 +4,11 @@ from src.dataToCode.dataClasses.attribute import Attribute
 from src.dataToCode.dataClasses.classData import ClassData
 from src.dataToCode.dataClasses.method import Method
 from src.dataToCode.dataClasses.visibility import Visibility
-from src.xmlToPlant.regexExtractors.attributeNameExtractor import AttributeNameExtractor
-from src.xmlToPlant.regexExtractors.methodNameExtractor import MethodNameExtractor
-from src.xmlToPlant.regexExtractors.parametersExtractor import ParametersExtractor
-from src.xmlToPlant.regexExtractors.returnTypeExtractor import ReturnTypeExtractor
-from src.xmlToPlant.regexExtractors.visibilityExtractor import VisibilityExtractor
+from src.xmlToData.regexExtractors.attributeNameExtractor import AttributeNameExtractor
+from src.xmlToData.regexExtractors.methodNameExtractor import MethodNameExtractor
+from src.xmlToData.regexExtractors.parametersExtractor import ParametersExtractor
+from src.xmlToData.regexExtractors.returnTypeExtractor import ReturnTypeExtractor
+from src.xmlToData.regexExtractors.visibilityExtractor import VisibilityExtractor
 
 
 class ClassParser:

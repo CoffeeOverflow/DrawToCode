@@ -1,5 +1,5 @@
 import pytest
-from src.xmlToPlant.regexExtractors.returnTypeExtractor import ReturnTypeExtractor
+from src.xmlToData.regexExtractors.returnTypeExtractor import ReturnTypeExtractor
 
 
 @pytest.mark.parametrize("xml_string", ["- age:int         ", "#        weight:    int       ",

@@ -5,13 +5,13 @@ from src.dataToCode.dataClasses.classData import ClassData
 from src.dataToCode.dataClasses.interface import Interface
 from src.dataToCode.dataClasses.method import Method
 from src.dataToCode.dataClasses.visibility import Visibility
-from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
+from src.xmlToData.drawIoXmlParser import DrawIoXmlParser
 import os.path as path
 import xml.etree.ElementTree as ET
 
 
 def test_interfaces_returned_read_xml():
-    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToPlant/uml_samples/uml_interface.xml"))
+    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToData/uml_samples/uml_interface.xml"))
     interface_ = Interface("CalculoDeSalario", [Method("calcular_salario_1", "float",
                                                        [Attribute("funcionario", "Funcionario")]),
                                                 Method("calcular_salario_2", "float",
@@ -22,7 +22,7 @@ def test_interfaces_returned_read_xml():
 
 
 def test_classes_returned_read_xml():
-    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToPlant/uml_samples/uml1.xml"))
+    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToData/uml_samples/uml1.xml"))
     class_ = ClassData("Humano",
                        [Attribute("idade", "int", Visibility.public), Attribute("anos", "float", Visibility.private)],
                        [Method("get_idade", "int", [Attribute("nome", "string"), Attribute("altura", "double")],
@@ -32,7 +32,7 @@ def test_classes_returned_read_xml():
 
 
 def test_extract_value_from_cells():
-    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToPlant/uml_samples/uml_interface.xml"))
+    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToData/uml_samples/uml_interface.xml"))
     xml = ET.parse(examples_folder)
     root = xml.getroot()
     list_of_ids = ['-cuIEp4vuOl5B3aBU6dm-1']
@@ -47,7 +47,7 @@ def test_extract_value_from_cells():
 
 
 def test():
-    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToPlant/uml_samples/orcs.xml"))
+    examples_folder = path.abspath(path.join(__file__, "../../../src/xmlToData/uml_samples/orcs.xml"))
     a = DrawIoXmlParser(examples_folder)
     class_list, interface_list = a.read_xml()
 

@@ -1,5 +1,5 @@
 import pytest
-from src.xmlToPlant.regexExtractors.methodNameExtractor import MethodNameExtractor
+from src.xmlToData.regexExtractors.methodNameExtractor import MethodNameExtractor
 
 
 @pytest.mark.parametrize("xml_string", ["+ add_weight(): float       ",

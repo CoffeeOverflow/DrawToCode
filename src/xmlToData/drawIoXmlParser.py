@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as ET
 from typing import Tuple, Dict
 
-from src.xmlToPlant.classParser import ClassParser
-from src.xmlToPlant.interfaceParser import InterfaceParser
+from src.xmlToData.classParser import ClassParser
+from src.xmlToData.interfaceParser import InterfaceParser
 
 
 class DrawIoXmlParser:

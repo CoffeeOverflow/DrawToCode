@@ -1,6 +1,6 @@
 import pytest
 from src.dataToCode.dataClasses.visibility import Visibility
-from src.xmlToPlant.regexExtractors.visibilityExtractor import VisibilityExtractor
+from src.xmlToData.regexExtractors.visibilityExtractor import VisibilityExtractor
 
 
 @pytest.mark.parametrize("xml_string", ["+ age: int", "+        weight: float",
