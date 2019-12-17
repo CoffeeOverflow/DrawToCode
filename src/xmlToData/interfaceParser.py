@@ -40,7 +40,6 @@ class InterfaceParser:
         for xml_string in list_of_methods_string_literals:
             if xml_string != "":
                 visibility = VisibilityExtractor.extract_visibility(xml_string)
-
                 type_ = ReturnTypeExtractor.extract_type(xml_string)
                 name = MethodNameExtractor.extract_name(xml_string)
                 list_of_parameters_string = ParametersExtractor.extract_parameters_string(xml_string)
