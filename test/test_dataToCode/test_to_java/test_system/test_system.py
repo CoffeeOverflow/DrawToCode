@@ -63,8 +63,8 @@ def test_strategy_example_java(tmpdir):
 
 def test_strategy_xml(tmpdir):
 
-    main_path = os.path.abspath(os.path.join(__file__,"../../../../../main.py"))
-    xml_path = os.path.abspath(os.path.join(__file__,"../../../../strategy.xml"))
+    main_path = os.path.abspath(os.path.join(__file__,"..", "..", "..", "..", "..", "main.py"))
+    xml_path = os.path.abspath(os.path.join(__file__,"..", "..", "..", "..", "strategy.xml"))
     subprocess.run(["python3", main_path,
                     f"--xml_file={xml_path}", f"--code_path={tmpdir}",
                     "--language=java"])
