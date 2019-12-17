@@ -36,7 +36,7 @@ class DrawIoXmlParser:
                         implements_dict[target_class].append(source_class)
                     except KeyError:
                         implements_dict[target_class] = [source_class]
-                else:
+                elif "endArrow" not in cell.get('style'):
                     list_of_ids.append(cell.get('id'))
                     list_of_xml_classes.append(cell.get('value'))
 
@@ -65,10 +65,10 @@ class DrawIoXmlParser:
         for superclass_id, subclasses in extends_dict.items():
             superclass_name = ids_to_names[superclass_id]
             for subclass_id in subclasses:
-                list_of_inheritances = []
                 subclass_name = ids_to_names[subclass_id]
                 for class_ in list_of_classes:
                     if class_.name == subclass_name:
+                        list_of_inheritances = class_.inheritances.copy()
                         for superclass_ in list_of_classes:
                             if superclass_name == superclass_.name:
                                 list_of_inheritances.append(superclass_)
