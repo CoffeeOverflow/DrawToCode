@@ -1,9 +1,9 @@
 from src.plantToCode.dataClasses.classData import ClassData
 from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.dataToCode.languageInterface import LanguageInterface
-from src.plantToCode.dataToCode.ToJava.classToJava import ClassToJava
-from src.plantToCode.dataToCode.ToJava.interfaceToJava import InterfaceToJava
-from src.plantToCode.dataToCode.ToJava.fileNameToJava import FileNameToJava
+from src.plantToCode.languages.languageInterface import LanguageInterface
+from src.plantToCode.languages.ToJava.classToJava import ClassToJava
+from src.plantToCode.languages.ToJava.interfaceToJava import InterfaceToJava
+from src.plantToCode.languages.ToJava.fileNameToJava import FileNameToJava
 from typing import Union
 
 

@@ -2,9 +2,9 @@ import os
 
 from src.plantToCode.dataClasses.classData import ClassData
 from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.dataToCode.ToJava.languageJava import LanguageJava
-from src.plantToCode.dataToCode.toPython.languagePython import LanguagePython
-from src.plantToCode.dataToCode.languageInterface import LanguageInterface
+from src.plantToCode.languages.ToJava.languageJava import LanguageJava
+from src.plantToCode.languages.toPython.languagePython import LanguagePython
+from src.plantToCode.languages.languageInterface import LanguageInterface
 
 from typing import List, Union
 

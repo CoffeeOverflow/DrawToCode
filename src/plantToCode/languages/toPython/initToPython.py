@@ -1,6 +1,6 @@
 from typing import List
 from src.plantToCode.dataClasses.attribute import Attribute
-from src.plantToCode.dataToCode.toPython.visibilityToPython import visibility_to_python
+from src.plantToCode.languages.toPython.visibilityToPython import visibility_to_python
 
 
 class InitToPython:

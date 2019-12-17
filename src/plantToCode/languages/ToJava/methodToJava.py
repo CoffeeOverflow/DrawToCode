@@ -1,7 +1,7 @@
-from src.plantToCode.dataToCode.methodToCode import MethodToCode
+from src.plantToCode.languages.methodToCode import MethodToCode
 from src.plantToCode.dataClasses.method import Method
 from src.plantToCode.dataClasses.attribute import Attribute
-from src.plantToCode.dataToCode.ToJava.methodModifierToJava \
+from src.plantToCode.languages.ToJava.methodModifierToJava \
     import MethodModifierToJava
 from typing import List
 
