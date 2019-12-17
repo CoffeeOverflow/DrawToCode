@@ -40,4 +40,5 @@ def write_files(objects: List[Union[ClassData, Interface]],
         with open(element_file_path, "w") as element_file:
             element_file.write(source_code)
 
-        print(f"File {name} created")
+        print(f"'{name}' created")
+    print('Done.')
