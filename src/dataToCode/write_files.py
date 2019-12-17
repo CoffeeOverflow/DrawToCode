@@ -23,6 +23,7 @@ def select_language(language: str) -> LanguageInterface:
 def write_files(objects: List[Union[ClassData, Interface]], 
                 path: str, language: str) -> None:
 
+    print('\n')
     language_writer = select_language(language)
     for element in objects:
         if type(element) == ClassData:
@@ -38,3 +39,5 @@ def write_files(objects: List[Union[ClassData, Interface]],
         
         with open(element_file_path, "w") as element_file:
             element_file.write(source_code)
+
+        print(f"File {name} created")
