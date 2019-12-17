@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="www.draw.io" modified="2019-12-17T14:16:11.947Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0" etag="_5Xtbm0DHwJIwc00ywYI" version="12.4.2" type="device" pages="1">
+  <diagram id="AbfsHDoHPodMjdIZsk2k" name="Page-1">
+    <mxGraphModel dx="1422" dy="791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;Context&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ strategy: Strategy&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ doSomeBusinessLogic(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="340" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-3" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Strategy&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ doAlgorithm(data: ArrayList&amp;lt;String&amp;gt;): ArrayList&amp;lt;String&amp;gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="345" width="320" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-5" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ConcreteStrategyA&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ doAlgorithm(data: ArrayList&amp;lt;String&amp;gt;): ArrayList&amp;lt;String&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="536" width="320" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-6" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="T5OoOEsfuNDpL02fCPJh-5" target="T5OoOEsfuNDpL02fCPJh-3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="210" y="550" as="sourcePoint"/>
+            <mxPoint x="370" y="550" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ConcreteStrategyB&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ doAlgorithm(data: ArrayList&amp;lt;String&amp;gt;): ArrayList&amp;lt;String&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="536" width="320" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-8" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="T5OoOEsfuNDpL02fCPJh-7" target="T5OoOEsfuNDpL02fCPJh-3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="290" y="546" as="sourcePoint"/>
+            <mxPoint x="470" y="440" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="T5OoOEsfuNDpL02fCPJh-10" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="T5OoOEsfuNDpL02fCPJh-1" target="T5OoOEsfuNDpL02fCPJh-3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="30" y="630" as="sourcePoint"/>
+            <mxPoint x="190" y="630" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
