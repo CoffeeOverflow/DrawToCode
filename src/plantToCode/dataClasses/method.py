@@ -26,7 +26,6 @@ class Method:
         
         if not(cond1 and cond2 and cond3 and cond4 and cond5):
             return False
-        print('ok')
         for x, y in zip(self.parameters, other.parameters):
             if x != y:
                 return False
