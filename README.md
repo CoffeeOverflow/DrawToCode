@@ -8,7 +8,7 @@ makes code from it.
 
 We don't have the intent to cover all Draw.io features and all programming
 languages, to know what you can
-use, go to the [Wiki](https://github.com/CoffeeOverflow/DrawToCode/wiki).
+use, go to the [Wiki](https://github.com/CoffeeOverflow/DrawToCode/wiki/Technical-Stuff).
 
 ### Programming Languages Accepted
 
