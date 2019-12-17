@@ -25,7 +25,6 @@ def write_files(objects: List[Union[ClassData, Interface]],
 
     language_writer = select_language(language)
     for element in objects:
-        print(type(element))
         if type(element) == ClassData:
             source_code = language_writer.get_class_code(element)
         elif type(element) == Interface:
