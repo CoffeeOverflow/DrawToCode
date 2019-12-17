@@ -25,7 +25,7 @@ class InterfaceParser:
 
         interface_name = result[0].b.string
 
-        list_of_methods_string_literals = list_of_methods_string_literals + str(result[-1]).split("<br>")
+        list_of_methods_string_literals += str(result[-1]).split("<br>")
         if len(list_of_methods_string_literals) == 1:
             list_of_methods_string_literals = str(result[-1]).split("<br/>")
 
