@@ -77,10 +77,10 @@ class DrawIoXmlParser:
         for interface_id, subclasses in implements_dict.items():
             interface_name = ids_to_names[interface_id]
             for class_id in subclasses:
-                list_of_interfaces_implemented = []
                 class_name = ids_to_names[class_id]
                 for class_ in list_of_classes:
                     if class_.name == class_name:
+                        list_of_interfaces_implemented = class_.implementations.copy()
                         for interface_ in list_of_interfaces:
                             if interface_name == interface_.name:
                                 list_of_interfaces_implemented.append(interface_)

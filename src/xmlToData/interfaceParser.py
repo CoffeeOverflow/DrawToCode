@@ -23,7 +23,10 @@ class InterfaceParser:
 
         result = html.find_all('p')
 
-        interface_name = result[0].b.string
+        if result[0].b is None:
+            interface_name = result[1].b.string
+        else:
+            interface_name = result[0].b.string
 
         list_of_methods_string_literals += str(result[-1]).split("<br>")
         if len(list_of_methods_string_literals) == 1:
