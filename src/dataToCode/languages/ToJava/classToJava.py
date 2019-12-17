@@ -1,9 +1,9 @@
-from src.plantToCode.languages.classToCode import ClassToCode
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.modifier import Modifier
-from src.plantToCode.languages.ToJava.methodToJava import MethodToJava
-from src.plantToCode.languages.ToJava.interfaceToJava import InterfaceToJava
-from src.plantToCode.languages.ToJava.inheritanceToJava import InheritanceToJava
+from src.dataToCode.languages.classToCode import ClassToCode
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.modifier import Modifier
+from src.dataToCode.languages.ToJava.methodToJava import MethodToJava
+from src.dataToCode.languages.ToJava.interfaceToJava import InterfaceToJava
+from src.dataToCode.languages.ToJava.inheritanceToJava import InheritanceToJava
 
 
 class ClassToJava(ClassToCode):

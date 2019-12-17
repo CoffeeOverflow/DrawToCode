@@ -1,6 +1,6 @@
-from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.languages.ToJava.interfaceToJava import InterfaceToJava
-from src.plantToCode.dataClasses.method import Method
+from src.dataToCode.dataClasses.interface import Interface
+from src.dataToCode.languages.ToJava.interfaceToJava import InterfaceToJava
+from src.dataToCode.dataClasses.method import Method
 
 
 def test_convert_interface():

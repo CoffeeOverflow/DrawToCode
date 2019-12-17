@@ -1,6 +1,6 @@
-from src.plantToCode.languages.fileNameToCode import FileNameToCode
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.interface import Interface
+from src.dataToCode.languages.fileNameToCode import FileNameToCode
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.interface import Interface
 from typing import Union
 
 

@@ -1,7 +1,7 @@
 import pytest
-from src.plantToCode.dataClasses.attribute import Attribute
-from src.plantToCode.dataClasses.visibility import Visibility
-from src.plantToCode.languages.toPython.initToPython import InitToPython
+from src.dataToCode.dataClasses.attribute import Attribute
+from src.dataToCode.dataClasses.visibility import Visibility
+from src.dataToCode.languages.toPython.initToPython import InitToPython
 
 
 def test_no_attributes_init():

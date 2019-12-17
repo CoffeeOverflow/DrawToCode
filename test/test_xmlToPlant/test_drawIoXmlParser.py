@@ -1,10 +1,10 @@
 import pytest
 
-from src.plantToCode.dataClasses.attribute import Attribute
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.dataClasses.method import Method
-from src.plantToCode.dataClasses.visibility import Visibility
+from src.dataToCode.dataClasses.attribute import Attribute
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.interface import Interface
+from src.dataToCode.dataClasses.method import Method
+from src.dataToCode.dataClasses.visibility import Visibility
 from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
 import os.path as path
 import xml.etree.ElementTree as ET

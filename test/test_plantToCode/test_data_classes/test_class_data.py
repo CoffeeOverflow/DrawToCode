@@ -1,8 +1,8 @@
-from src.plantToCode.dataClasses.attribute import Attribute
+from src.dataToCode.dataClasses.attribute import Attribute
 import pytest
-from src.plantToCode.dataClasses.visibility import Visibility
-from src.plantToCode.dataClasses.method import Method
-from src.plantToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.visibility import Visibility
+from src.dataToCode.dataClasses.method import Method
+from src.dataToCode.dataClasses.classData import ClassData
 
 def test_class_equal():
     method1 = Method("a")

@@ -1,8 +1,8 @@
 import pytest
-from src.plantToCode.languages.ToJava.fileNameToJava import FileNameToJava
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.dataClasses.method import Method
+from src.dataToCode.languages.ToJava.fileNameToJava import FileNameToJava
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.interface import Interface
+from src.dataToCode.dataClasses.method import Method
 
 
 def test_single_name_class():

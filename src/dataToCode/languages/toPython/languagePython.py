@@ -1,9 +1,9 @@
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.languages.languageInterface import LanguageInterface
-from src.plantToCode.languages.toPython.classToPython import ClassToPython
-from src.plantToCode.languages.toPython.interfaceToPython import InterfaceToPython
-from src.plantToCode.languages.toPython.fileNameToPython import FileNameToPython
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.interface import Interface
+from src.dataToCode.languages.languageInterface import LanguageInterface
+from src.dataToCode.languages.toPython.classToPython import ClassToPython
+from src.dataToCode.languages.toPython.interfaceToPython import InterfaceToPython
+from src.dataToCode.languages.toPython.fileNameToPython import FileNameToPython
 from typing import Union
 
 

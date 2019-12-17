@@ -1,7 +1,7 @@
-from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.languages.interfaceToCode import InterfaceToCode
-from src.plantToCode.languages.toPython.methodToPython import MethodToPython
-from src.plantToCode.languages.toPython.fileNameToPython import FileNameToPython
+from src.dataToCode.dataClasses.interface import Interface
+from src.dataToCode.languages.interfaceToCode import InterfaceToCode
+from src.dataToCode.languages.toPython.methodToPython import MethodToPython
+from src.dataToCode.languages.toPython.fileNameToPython import FileNameToPython
 
 
 class InterfaceToPython(InterfaceToCode):

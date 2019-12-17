@@ -1,6 +1,6 @@
-from src.plantToCode.dataClasses.visibility import Visibility
+from src.dataToCode.dataClasses.visibility import Visibility
 from typing import List
-from src.plantToCode.dataClasses.method import Method
+from src.dataToCode.dataClasses.method import Method
 
 
 class Interface:

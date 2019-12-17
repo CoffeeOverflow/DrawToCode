@@ -1,6 +1,6 @@
 import click
 
-from src.plantToCode.write_files import write_files
+from src.dataToCode.write_files import write_files
 from src.xmlToPlant.drawIoXmlParser import DrawIoXmlParser
 
 

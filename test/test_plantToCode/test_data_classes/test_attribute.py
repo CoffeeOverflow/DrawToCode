@@ -1,6 +1,6 @@
-from src.plantToCode.dataClasses.attribute import Attribute
+from src.dataToCode.dataClasses.attribute import Attribute
 import pytest
-from src.plantToCode.dataClasses.visibility import Visibility
+from src.dataToCode.dataClasses.visibility import Visibility
 
 testdata = [
  (["a", "int", Visibility.public], ["b", "float", Visibility.private], False),

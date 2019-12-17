@@ -1,5 +1,5 @@
 import pytest
-from src.plantToCode.dataClasses.visibility import Visibility
+from src.dataToCode.dataClasses.visibility import Visibility
 from src.xmlToPlant.regexExtractors.visibilityExtractor import VisibilityExtractor
 
 

@@ -1,9 +1,9 @@
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.modifier import Modifier
-from src.plantToCode.languages.classToCode import ClassToCode
-from src.plantToCode.languages.toPython.initToPython import InitToPython
-from src.plantToCode.languages.toPython.methodToPython import MethodToPython
-from src.plantToCode.languages.toPython.fileNameToPython import FileNameToPython
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.modifier import Modifier
+from src.dataToCode.languages.classToCode import ClassToCode
+from src.dataToCode.languages.toPython.initToPython import InitToPython
+from src.dataToCode.languages.toPython.methodToPython import MethodToPython
+from src.dataToCode.languages.toPython.fileNameToPython import FileNameToPython
 
 class ClassToPython(ClassToCode):
     def __init__(self, class_data: ClassData):

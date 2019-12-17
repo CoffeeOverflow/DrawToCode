@@ -1,6 +1,6 @@
-from src.plantToCode.languages.interfaceToCode import InterfaceToCode
-from src.plantToCode.dataClasses.interface import Interface
-from src.plantToCode.languages.ToJava.methodToJava import MethodToJava
+from src.dataToCode.languages.interfaceToCode import InterfaceToCode
+from src.dataToCode.dataClasses.interface import Interface
+from src.dataToCode.languages.ToJava.methodToJava import MethodToJava
 
 from typing import List
 

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from src.plantToCode.dataClasses.classData import ClassData
-from src.plantToCode.dataClasses.interface import Interface
+from src.dataToCode.dataClasses.classData import ClassData
+from src.dataToCode.dataClasses.interface import Interface
 from typing import Union
 
 
